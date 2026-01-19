@@ -74,13 +74,13 @@ const Transportation = () => {
                     Regional buses connect major towns and villages in Messinia.
                   </p>
                   <a
-                    href="https://www.ktelbus.gr"
+                    href="https://www.ktelmessinias.gr/en/homepage-en/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-mediterranean hover:text-mediterranean/80 transition-colors font-sans"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    www.ktelbus.gr
+                    www.ktelmessinias.gr
                   </a>
                 </div>
               </div>

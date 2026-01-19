@@ -136,7 +136,7 @@ const RSVP = () => {
           </form>
           
           <p className="text-center text-muted-foreground text-sm mt-6 font-sans">
-            Please RSVP by <span className="text-foreground font-medium">July 30, 2026</span>
+            Please RSVP by <span className="text-foreground font-medium">May 31, 2026</span>
           </p>
         </motion.div>
       </div>
