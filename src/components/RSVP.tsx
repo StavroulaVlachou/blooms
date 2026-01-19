@@ -6,16 +6,37 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Plus, Trash2, CalendarIcon } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Calendar } from "./ui/calendar";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
+
+interface Guest {
+  id: string;
+  name: string;
+  dietary: string;
+  allergies: string;
+}
 
 const RSVP = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    guests: "",
-    dietary: "",
+    accommodation: "",
     message: "",
   });
+  const [guests, setGuests] = useState<Guest[]>([]);
+  const [arrivalDate, setArrivalDate] = useState<Date>();
+  const [departureDate, setDepartureDate] = useState<Date>();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +44,10 @@ const RSVP = () => {
       title: "Thank you!",
       description: "Your RSVP has been received. We can't wait to celebrate with you!",
     });
-    setFormData({ name: "", email: "", guests: "", dietary: "", message: "" });
+    setFormData({ name: "", email: "", accommodation: "", message: "" });
+    setGuests([]);
+    setArrivalDate(undefined);
+    setDepartureDate(undefined);
   };
 
   const handleChange = (
@@ -33,6 +57,25 @@ const RSVP = () => {
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const addGuest = () => {
+    setGuests([
+      ...guests,
+      { id: crypto.randomUUID(), name: "", dietary: "", allergies: "" },
+    ]);
+  };
+
+  const removeGuest = (id: string) => {
+    setGuests(guests.filter((guest) => guest.id !== id));
+  };
+
+  const updateGuest = (id: string, field: keyof Guest, value: string) => {
+    setGuests(
+      guests.map((guest) =>
+        guest.id === id ? { ...guest, [field]: value } : guest
+      )
+    );
   };
 
   return (
@@ -81,36 +124,148 @@ const RSVP = () => {
                 placeholder="your@email.com"
               />
             </div>
-            
+
+            {/* Guest Management */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <Label className="font-sans">Additional Guests</Label>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={addGuest}
+                  className="gap-1"
+                >
+                  <Plus className="h-4 w-4" />
+                  Add Guest
+                </Button>
+              </div>
+
+              {guests.map((guest, index) => (
+                <motion.div
+                  key={guest.id}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="p-4 border border-border rounded-lg bg-card/50 space-y-3"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-muted-foreground">
+                      Guest {index + 1}
+                    </span>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => removeGuest(guest.id)}
+                      className="text-destructive hover:text-destructive"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  
+                  <Input
+                    placeholder="Guest name"
+                    value={guest.name}
+                    onChange={(e) => updateGuest(guest.id, "name", e.target.value)}
+                    className="bg-card border-border"
+                  />
+                  
+                  <Select
+                    value={guest.dietary}
+                    onValueChange={(value) => updateGuest(guest.id, "dietary", value)}
+                  >
+                    <SelectTrigger className="bg-card border-border">
+                      <SelectValue placeholder="Dietary preference" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-card border-border">
+                      <SelectItem value="normal">No restrictions</SelectItem>
+                      <SelectItem value="vegetarian">Vegetarian</SelectItem>
+                      <SelectItem value="vegan">Vegan</SelectItem>
+                      <SelectItem value="pescetarian">Pescetarian</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  
+                  <Input
+                    placeholder="Allergies (if any)"
+                    value={guest.allergies}
+                    onChange={(e) => updateGuest(guest.id, "allergies", e.target.value)}
+                    className="bg-card border-border"
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Accommodation */}
             <div className="space-y-2">
-              <Label htmlFor="guests" className="font-sans">
-                Number of Guests
+              <Label htmlFor="accommodation" className="font-sans">
+                Accommodation
               </Label>
               <Input
-                id="guests"
-                name="guests"
-                type="number"
-                min="1"
-                max="10"
-                value={formData.guests}
+                id="accommodation"
+                name="accommodation"
+                value={formData.accommodation}
                 onChange={handleChange}
                 className="bg-card border-border"
-                placeholder="Including yourself"
+                placeholder="Hotel or accommodation name"
               />
             </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="dietary" className="font-sans">
-                Dietary Requirements
-              </Label>
-              <Input
-                id="dietary"
-                name="dietary"
-                value={formData.dietary}
-                onChange={handleChange}
-                className="bg-card border-border"
-                placeholder="Any allergies or dietary restrictions"
-              />
+
+            {/* Arrival & Departure Dates */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label className="font-sans">Arrival Date</Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal bg-card border-border",
+                        !arrivalDate && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {arrivalDate ? format(arrivalDate, "PPP") : "Select date"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={arrivalDate}
+                      onSelect={setArrivalDate}
+                      initialFocus
+                      className="p-3 pointer-events-auto"
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="font-sans">Departure Date</Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal bg-card border-border",
+                        !departureDate && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {departureDate ? format(departureDate, "PPP") : "Select date"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={departureDate}
+                      onSelect={setDepartureDate}
+                      initialFocus
+                      className="p-3 pointer-events-auto"
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
             </div>
             
             <div className="space-y-2">
