@@ -31,6 +31,8 @@ const RSVP = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    dietary: "",
+    allergies: "",
     accommodation: "",
     message: "",
   });
@@ -44,7 +46,7 @@ const RSVP = () => {
       title: "Thank you!",
       description: "Your RSVP has been received. We can't wait to celebrate with you!",
     });
-    setFormData({ name: "", email: "", accommodation: "", message: "" });
+    setFormData({ name: "", email: "", dietary: "", allergies: "", accommodation: "", message: "" });
     setGuests([]);
     setArrivalDate(undefined);
     setDepartureDate(undefined);
@@ -122,6 +124,38 @@ const RSVP = () => {
                 required
                 className="bg-card border-border"
                 placeholder="your@email.com"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="font-sans">Dietary Preference</Label>
+              <Select
+                value={formData.dietary}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, dietary: value }))}
+              >
+                <SelectTrigger className="bg-card border-border">
+                  <SelectValue placeholder="Select dietary preference" />
+                </SelectTrigger>
+                <SelectContent className="bg-card border-border">
+                  <SelectItem value="normal">No restrictions</SelectItem>
+                  <SelectItem value="vegetarian">Vegetarian</SelectItem>
+                  <SelectItem value="vegan">Vegan</SelectItem>
+                  <SelectItem value="pescetarian">Pescetarian</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="allergies" className="font-sans">
+                Allergies
+              </Label>
+              <Input
+                id="allergies"
+                name="allergies"
+                value={formData.allergies}
+                onChange={handleChange}
+                className="bg-card border-border"
+                placeholder="Any allergies or dietary restrictions"
               />
             </div>
 
