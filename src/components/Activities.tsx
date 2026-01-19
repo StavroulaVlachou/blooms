@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
-import { Waves, Castle, Mountain, Compass, ExternalLink, Anchor } from "lucide-react";
+import { Waves, Castle, Mountain, Compass, ExternalLink, Anchor, Landmark } from "lucide-react";
 
 import pylosCastleImg from "@/assets/pylos-castle.jpg";
 import voidokoiliaBeachImg from "@/assets/voidokoilia-beach.jpg";
@@ -9,6 +9,7 @@ import nestorsCaveImg from "@/assets/nestors-cave.jpg";
 import kyparissiaCastleImg from "@/assets/kyparissia-castle.jpg";
 import protiCruisesImg from "@/assets/proti-cruises.jpg";
 import scubaDivingImg from "@/assets/scuba-diving.jpg";
+import ancientMesseneImg from "@/assets/ancient-messene.jpg";
 
 const activities = [
   {
@@ -59,6 +60,13 @@ const activities = [
     description: "Dive into the crystal-clear Mediterranean waters and discover the underwater world with experienced guides.",
     link: "https://scubaturtles.gr/",
     image: scubaDivingImg,
+  },
+  {
+    icon: Landmark,
+    title: "Ancient Messene",
+    description: "Explore one of the best-preserved ancient cities in Greece, featuring a stunning theater, stadium, and temples.",
+    link: "https://www.google.com/maps/place/Ancient+Messene/@37.1709,21.9208,15z",
+    image: ancientMesseneImg,
   },
 ];
 
