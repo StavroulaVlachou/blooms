@@ -2,14 +2,10 @@ import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import saveTheDate1 from "@/assets/save-the-date-1.jpg";
 import saveTheDate2 from "@/assets/save-the-date-2.jpg";
-import saveTheDate3 from "@/assets/save-the-date-3.jpg";
-import saveTheDate4 from "@/assets/save-the-date-4.jpg";
 
 const pages = [
   { src: saveTheDate1, alt: "Save the Date - Page 1" },
   { src: saveTheDate2, alt: "Accommodation Options - Page 2" },
-  { src: saveTheDate3, alt: "Contact Information - Page 3" },
-  { src: saveTheDate4, alt: "Wedding Date - Page 4" },
 ];
 
 const SaveTheDate = () => {
