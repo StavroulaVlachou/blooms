@@ -4,34 +4,34 @@ import { UtensilsCrossed, Waves, Castle, Mountain, Wine, Compass } from "lucide-
 
 const activities = [
   {
+    icon: Castle,
+    title: "Pylos Castle",
+    description: "Explore the historic Niokastro fortress overlooking the stunning Bay of Navarino.",
+  },
+  {
     icon: Waves,
-    title: "Costa Navarino Beaches",
-    description: "Crystal clear waters and pristine sandy beaches perfect for relaxation and water sports.",
+    title: "Voidokoilia Beach",
+    description: "Visit one of the most beautiful beaches in the world with its iconic omega-shaped bay.",
   },
   {
     icon: Castle,
-    title: "Ancient Messene",
-    description: "Explore one of the best-preserved ancient Greek cities with its impressive theater and stadium.",
-  },
-  {
-    icon: Wine,
-    title: "Olive Oil Tasting",
-    description: "Experience the famous Kalamata olive oil at local estates and learn about traditional production.",
+    title: "Palace of Nestor",
+    description: "Discover the best-preserved Mycenaean palace in Greece, dating back 3,200 years.",
   },
   {
     icon: Mountain,
-    title: "Polylimnio Waterfalls",
-    description: "Discover hidden waterfalls and natural pools surrounded by lush vegetation.",
+    title: "Nestor's Cave",
+    description: "Hike to the legendary cave where King Nestor's cattle were said to be kept.",
   },
   {
-    icon: UtensilsCrossed,
-    title: "Local Cuisine",
-    description: "Savor traditional Greek dishes, fresh seafood, and local wines at tavernas by the sea.",
+    icon: Castle,
+    title: "Kyparissia Castle & Old Town",
+    description: "Wander through charming cobblestone streets and explore the Byzantine-Frankish castle ruins.",
   },
   {
     icon: Compass,
-    title: "Methoni Castle",
-    description: "Visit the stunning Venetian fortress with its iconic Bourtzi tower standing in the sea.",
+    title: "Proti Cruises Adventure",
+    description: "Take a boat trip to the beautiful Proti Island for swimming, snorkeling, and exploration.",
   },
 ];
 
