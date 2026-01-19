@@ -5,22 +5,28 @@ import { Mail, Phone, MapPin, Heart } from "lucide-react";
 const Contact = () => {
   const contacts = [
     {
+      icon: Phone,
+      label: "Erik",
+      value: "+46 79 048 9505",
+      href: "tel:+46790489505",
+    },
+    {
       icon: Mail,
-      label: "Email Us",
-      value: "wedding@erikandrafailia.com",
-      href: "mailto:wedding@erikandrafailia.com",
+      label: "Erik's Email",
+      value: "erik.bloom1@gmail.com",
+      href: "mailto:erik.bloom1@gmail.com",
     },
     {
       icon: Phone,
-      label: "Call or WhatsApp",
-      value: "+30 123 456 7890",
-      href: "tel:+301234567890",
+      label: "Rafailia",
+      value: "+46 72 445 7300",
+      href: "tel:+46724457300",
     },
     {
-      icon: MapPin,
-      label: "Wedding Venue",
-      value: "Messinia, Peloponnese, Greece",
-      href: "https://maps.google.com/?q=Messinia+Greece",
+      icon: Mail,
+      label: "Rafailia's Email",
+      value: "stavr.vlachou@yahoo.com",
+      href: "mailto:stavr.vlachou@yahoo.com",
     },
   ];
 
@@ -38,7 +44,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {contacts.map((contact, index) => (
               <motion.a
