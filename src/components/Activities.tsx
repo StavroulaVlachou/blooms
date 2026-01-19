@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
-import { Waves, Castle, Mountain, Compass, ExternalLink, Anchor, Landmark } from "lucide-react";
+import { Waves, Castle, Mountain, Compass, ExternalLink, Anchor, Landmark, TreePine } from "lucide-react";
 
 import pylosCastleImg from "@/assets/pylos-castle.jpg";
 import voidokoiliaBeachImg from "@/assets/voidokoilia-beach.jpg";
@@ -10,6 +10,7 @@ import kyparissiaCastleImg from "@/assets/kyparissia-castle.jpg";
 import protiCruisesImg from "@/assets/proti-cruises.jpg";
 import scubaDivingImg from "@/assets/scuba-diving.jpg";
 import ancientMesseneImg from "@/assets/ancient-messene.jpg";
+import polylimnioImg from "@/assets/polylimnio-waterfalls.jpg";
 
 const activities = [
   {
@@ -67,6 +68,13 @@ const activities = [
     description: "Explore one of the best-preserved ancient cities in Greece, featuring a stunning theater, stadium, and temples.",
     link: "https://www.google.com/maps/place/Ancient+Messene/@37.1709,21.9208,15z",
     image: ancientMesseneImg,
+  },
+  {
+    icon: TreePine,
+    title: "Polylimnio Waterfalls",
+    description: "Hike through a magical gorge with stunning turquoise pools and cascading waterfalls perfect for swimming.",
+    link: "https://www.google.com/maps/place/Polylimnio+Waterfalls/@37.0847,21.8689,15z",
+    image: polylimnioImg,
   },
 ];
 
