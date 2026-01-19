@@ -97,9 +97,30 @@ const Transportation = () => {
                   <p className="text-muted-foreground text-sm mb-3">
                     Pre-book a taxi for airport transfers or local trips.
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-foreground font-sans">
-                    <Phone className="w-4 h-4 text-primary" />
-                    <span>+30 27210 23500</span>
+                  <div className="space-y-2">
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-1">Gargalianoi / Pylos Area:</p>
+                      <div className="flex items-center gap-2 text-sm text-foreground font-sans">
+                        <Phone className="w-4 h-4 text-primary" />
+                        <a href="tel:+306974021231" className="hover:text-primary transition-colors">+30 697 402 1231</a>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-foreground font-sans mt-1">
+                        <Phone className="w-4 h-4 text-primary" />
+                        <a href="tel:+306972186836" className="hover:text-primary transition-colors">+30 697 218 6836</a>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-1">Messinia Ride (24/7):</p>
+                      <a
+                        href="https://www.messiniaride.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-mediterranean hover:text-mediterranean/80 transition-colors font-sans"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        www.messiniaride.com
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
