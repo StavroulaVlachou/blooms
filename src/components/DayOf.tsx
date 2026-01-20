@@ -3,6 +3,7 @@ import SectionTitle from "./SectionTitle";
 import { Church, Wine, UtensilsCrossed, PartyPopper, LucideIcon } from "lucide-react";
 import cocktailHour from "@/assets/cocktail-hour.png";
 import churchImage from "@/assets/church-hero.png";
+import dinnerImage from "@/assets/dinner.png";
 
 interface Event {
   time: string;
@@ -28,6 +29,7 @@ const events: Event[] = [
     time: "20:00",
     title: "Dinner",
     icon: UtensilsCrossed,
+    image: dinnerImage,
   },
   {
     time: "21:30",
