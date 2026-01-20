@@ -22,6 +22,7 @@ const events: Event[] = [
     time: "19:00",
     title: "Cocktail Hour",
     icon: Wine,
+    image: venueView,
   },
   {
     time: "20:00",
@@ -43,27 +44,6 @@ const DayOf = () => {
           title="Day Of"
           subtitle="Join us as we celebrate our special day"
         />
-
-        {/* Venue View Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto mb-12"
-        >
-          <div className="relative rounded-2xl overflow-hidden shadow-lg">
-            <img
-              src={venueView}
-              alt="View from the wedding venue"
-              className="w-full h-64 sm:h-80 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            <p className="absolute bottom-4 left-4 text-white font-serif text-lg">
-              The view from our venue
-            </p>
-          </div>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -95,7 +75,7 @@ const DayOf = () => {
                   <div className="flex-1">
                     <div 
                       className={`relative flex items-center justify-between py-4 px-6 rounded-lg border border-border overflow-hidden ${
-                        event.image ? 'min-h-[120px]' : 'bg-card'
+                        event.image ? 'min-h-[180px]' : 'bg-card'
                       }`}
                     >
                       {event.image && (
