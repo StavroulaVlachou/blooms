@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import { Church, Wine, UtensilsCrossed, PartyPopper, LucideIcon } from "lucide-react";
-import venueView from "@/assets/venue-view.jpg";
+import cocktailHour from "@/assets/cocktail-hour.png";
 import churchImage from "@/assets/church-hero.png";
 
 interface Event {
@@ -22,7 +22,7 @@ const events: Event[] = [
     time: "19:00",
     title: "Cocktail Hour",
     icon: Wine,
-    image: venueView,
+    image: cocktailHour,
   },
   {
     time: "20:00",
