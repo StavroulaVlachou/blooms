@@ -93,23 +93,28 @@ const DayOf = () => {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <div className="flex items-center justify-between py-4 px-6 bg-card rounded-lg border border-border">
-                      <h3 className="font-serif text-xl text-foreground">
+                    <div 
+                      className={`relative flex items-center justify-between py-4 px-6 rounded-lg border border-border overflow-hidden ${
+                        event.image ? 'min-h-[120px]' : 'bg-card'
+                      }`}
+                    >
+                      {event.image && (
+                        <>
+                          <img
+                            src={event.image}
+                            alt={event.title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/50" />
+                        </>
+                      )}
+                      <h3 className={`relative z-10 font-serif text-xl ${event.image ? 'text-white' : 'text-foreground'}`}>
                         {event.title}
                       </h3>
-                      <span className="text-primary font-sans font-medium text-lg">
+                      <span className={`relative z-10 font-sans font-medium text-lg ${event.image ? 'text-white' : 'text-primary'}`}>
                         {event.time}
                       </span>
                     </div>
-                    {event.image && (
-                      <div className="mt-3 rounded-lg overflow-hidden">
-                        <img
-                          src={event.image}
-                          alt={event.title}
-                          className="w-full h-40 object-cover"
-                        />
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               ))}
