@@ -16,65 +16,74 @@ const activities = [
   {
     icon: Castle,
     title: "Pylos Castle",
-    description: "Explore the historic Niokastro fortress overlooking the stunning Bay of Navarino.",
+    description: "Historic Niokastro fortress overlooking the Bay of Navarino",
     link: "https://share.google/5G9KGW1zyctB6L4lj",
     image: pylosCastleImg,
+    size: "large",
   },
   {
     icon: Waves,
     title: "Voidokoilia Beach",
-    description: "Visit one of the most beautiful beaches in the world with its iconic omega-shaped bay.",
+    description: "One of the world's most beautiful omega-shaped bays",
     link: "https://www.google.com/maps/place/Voidokilia+Beach/@36.9622,21.6586,15z",
     image: voidokoiliaBeachImg,
+    size: "large",
   },
   {
     icon: Castle,
     title: "Palace of Nestor",
-    description: "Discover the best-preserved Mycenaean palace in Greece, dating back 3,200 years.",
+    description: "Best-preserved Mycenaean palace, 3,200 years old",
     link: "https://www.google.com/maps/place/Palace+of+Nestor/@37.0264,21.6941,15z",
     image: palaceNestorImg,
+    size: "small",
   },
   {
     icon: Mountain,
     title: "Nestor's Cave",
-    description: "Hike to the legendary cave where King Nestor's cattle were said to be kept.",
+    description: "Legendary cave with stunning views",
     link: "https://www.google.com/maps/place/Nestor's+Cave/@36.9672,21.6483,15z",
     image: nestorsCaveImg,
+    size: "small",
   },
   {
     icon: Castle,
-    title: "Kyparissia Castle & Old Town",
-    description: "Wander through charming cobblestone streets and explore the Byzantine-Frankish castle ruins.",
+    title: "Kyparissia Castle",
+    description: "Byzantine-Frankish ruins and charming old town",
     link: "https://www.google.com/maps/place/Kyparissia+Castle/@37.2513,21.6678,15z",
     image: kyparissiaCastleImg,
+    size: "small",
   },
   {
     icon: Compass,
-    title: "Proti Cruises Adventure",
-    description: "Take a boat trip to the beautiful Proti Island for swimming, snorkeling, and exploration.",
+    title: "Proti Cruises",
+    description: "Boat trips to Proti Island for swimming and snorkeling",
     link: "https://www.protocruises.gr/",
     image: protiCruisesImg,
+    size: "medium",
   },
   {
     icon: Anchor,
-    title: "Scuba Turtles Diving",
-    description: "Dive into the crystal-clear Mediterranean waters and discover the underwater world with experienced guides.",
+    title: "Scuba Diving",
+    description: "Explore underwater with Scuba Turtles",
     link: "https://scubaturtles.gr/",
     image: scubaDivingImg,
+    size: "medium",
   },
   {
     icon: Landmark,
     title: "Ancient Messene",
-    description: "Explore one of the best-preserved ancient cities in Greece, featuring a stunning theater, stadium, and temples.",
+    description: "One of Greece's best-preserved ancient cities",
     link: "https://www.google.com/maps/place/Ancient+Messene/@37.1709,21.9208,15z",
     image: ancientMesseneImg,
+    size: "large",
   },
   {
     icon: TreePine,
     title: "Polylimnio Waterfalls",
-    description: "Hike through a magical gorge with stunning turquoise pools and cascading waterfalls perfect for swimming.",
+    description: "Magical gorge with turquoise pools and cascades",
     link: "https://www.google.com/maps/place/Polylimnio+Waterfalls/@37.0847,21.8689,15z",
     image: polylimnioImg,
+    size: "medium",
   },
 ];
 
@@ -87,40 +96,51 @@ const Activities = () => {
           subtitle="Make the most of your visit to this beautiful corner of Greece"
         />
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-6xl mx-auto">
-          {activities.map((activity, index) => (
-            <motion.a
-              key={activity.title}
-              href={activity.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border group hover:-translate-y-1"
-            >
-              <div className="relative h-28 overflow-hidden">
-                <img
-                  src={activity.image}
-                  alt={activity.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className="absolute bottom-2 left-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center">
-                  <activity.icon className="w-3.5 h-3.5 text-primary" />
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 max-w-5xl mx-auto">
+          {activities.map((activity, index) => {
+            const heightClass = 
+              activity.size === "large" ? "h-72" : 
+              activity.size === "medium" ? "h-56" : "h-44";
+            
+            return (
+              <motion.a
+                key={activity.title}
+                href={activity.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="block mb-4 break-inside-avoid group"
+              >
+                <div className={`relative ${heightClass} rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all`}>
+                  <img
+                    src={activity.image}
+                    alt={activity.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <activity.icon className="w-4 h-4 text-white/80" />
+                      <h3 className="text-white font-serif text-lg">
+                        {activity.title}
+                      </h3>
+                    </div>
+                    <p className="text-white/80 text-sm leading-snug">
+                      {activity.description}
+                    </p>
+                  </div>
+                  
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ExternalLink className="w-4 h-4 text-white" />
+                  </div>
                 </div>
-              </div>
-              <div className="p-3">
-                <div className="flex items-start justify-between gap-1">
-                  <h3 className="text-sm font-serif text-foreground leading-tight">
-                    {activity.title}
-                  </h3>
-                  <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
-                </div>
-              </div>
-            </motion.a>
-          ))}
+              </motion.a>
+            );
+          })}
         </div>
       </div>
     </section>
