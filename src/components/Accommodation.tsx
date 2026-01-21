@@ -7,15 +7,15 @@ const accommodationOptions = [
     icon: Hotel,
     title: "Booking.com List",
     description: "Our curated list of recommended hotels near the venue",
-    link: "#", // Placeholder
-    placeholder: true,
+    link: "https://booking.com/mywishlist.html?wl=6816a744c757408599f8fe226b8187a7",
+    placeholder: false,
   },
   {
     icon: Home,
     title: "Airbnb Wishlist",
     description: "Handpicked apartments and villas for a local experience",
-    link: "#", // Placeholder
-    placeholder: true,
+    link: "https://www.airbnb.com/wishlists/1924011412",
+    placeholder: false,
   },
   {
     icon: MapPin,
