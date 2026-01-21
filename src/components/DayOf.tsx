@@ -4,6 +4,7 @@ import { Church, Wine, UtensilsCrossed, PartyPopper, LucideIcon } from "lucide-r
 import cocktailHour from "@/assets/cocktail-hour.png";
 import churchImage from "@/assets/church-hero.png";
 import dinnerImage from "@/assets/dinner.png";
+import partyImage from "@/assets/party.png";
 
 interface Event {
   time: string;
@@ -35,6 +36,7 @@ const events: Event[] = [
     time: "21:30",
     title: "Party",
     icon: PartyPopper,
+    image: partyImage,
   },
 ];
 
