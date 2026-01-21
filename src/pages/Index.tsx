@@ -15,11 +15,11 @@ const Index = () => {
       <Navigation />
       <Hero />
       <DayOf />
-      <Activities />
-      <Accommodation />
       <Transportation />
-      <FAQ />
+      <Accommodation />
+      <Activities />
       <RSVP />
+      <FAQ />
       <Contact />
       <Footer />
     </main>
