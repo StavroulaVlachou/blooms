@@ -17,7 +17,7 @@ const activities = [
     icon: Castle,
     title: "Pylos Castle",
     description: "Explore the historic Niokastro fortress overlooking the stunning Bay of Navarino.",
-    link: "https://www.google.com/maps/place/Niokastro/@36.9082,21.6917,15z",
+    link: "https://share.google/5G9KGW1zyctB6L4lj",
     image: pylosCastleImg,
   },
   {
