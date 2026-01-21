@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import DayOf from "@/components/DayOf";
 import Activities from "@/components/Activities";
+import Accommodation from "@/components/Accommodation";
 import Transportation from "@/components/Transportation";
 import FAQ from "@/components/FAQ";
 import RSVP from "@/components/RSVP";
@@ -15,6 +16,7 @@ const Index = () => {
       <Hero />
       <DayOf />
       <Activities />
+      <Accommodation />
       <Transportation />
       <FAQ />
       <RSVP />
