@@ -19,7 +19,7 @@ const Navigation = () => {
     { href: "#day-of", label: "Day Of" },
     { href: "#activities", label: "Activities" },
     { href: "#transportation", label: "Getting There" },
-    { href: "#faq", label: "FAQ" },
+    { href: "#gallery", label: "Gallery" },
     { href: "#rsvp", label: "RSVP" },
     { href: "#contact", label: "Contact" },
   ];

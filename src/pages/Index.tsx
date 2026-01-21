@@ -4,6 +4,7 @@ import DayOf from "@/components/DayOf";
 import Activities from "@/components/Activities";
 import Accommodation from "@/components/Accommodation";
 import Transportation from "@/components/Transportation";
+import Gallery from "@/components/Gallery";
 import FAQ from "@/components/FAQ";
 import RSVP from "@/components/RSVP";
 import Contact from "@/components/Contact";
@@ -18,6 +19,7 @@ const Index = () => {
       <Transportation />
       <Accommodation />
       <Activities />
+      <Gallery />
       <RSVP />
       <Contact />
       <FAQ />
