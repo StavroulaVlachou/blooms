@@ -6,25 +6,25 @@ const Contact = () => {
   const contacts = [
     {
       icon: Phone,
-      label: "Erik",
+      label: "Call Erik",
       value: "+46 79 048 9505",
       href: "tel:+46790489505",
     },
     {
       icon: Mail,
-      label: "Erik's Email",
+      label: "Email Erik",
       value: "erik.bloom1@gmail.com",
       href: "mailto:erik.bloom1@gmail.com",
     },
     {
       icon: Phone,
-      label: "Rafailia",
+      label: "Call Rafailia",
       value: "+46 72 445 7300",
       href: "tel:+46724457300",
     },
     {
       icon: Mail,
-      label: "Rafailia's Email",
+      label: "Email Rafailia",
       value: "stavr.vlachou@yahoo.com",
       href: "mailto:stavr.vlachou@yahoo.com",
     },
@@ -35,7 +35,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Get in Touch"
-          subtitle="We'd love to hear from you! Reach out with any questions."
+          subtitle="If it's all Greek to you, reach out!"
         />
         
         <div className="max-w-3xl mx-auto">
