@@ -4,9 +4,9 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Plus, Trash2, CalendarIcon, Edit3, Check } from "lucide-react";
+import { Plus, Trash2, CalendarIcon } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -16,7 +16,7 @@ import {
 } from "./ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
-import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 interface Guest {
@@ -25,23 +25,6 @@ interface Guest {
   dietary: string;
   allergies: string;
 }
-
-interface RSVPData {
-  formData: {
-    name: string;
-    email: string;
-    dietary: string;
-    allergies: string;
-    accommodation: string;
-    message: string;
-  };
-  guests: Guest[];
-  arrivalDate: string | null;
-  departureDate: string | null;
-  submittedAt: string;
-}
-
-const RSVP_STORAGE_KEY = "wedding_rsvp_data";
 
 const RSVP = () => {
   const { toast } = useToast();
@@ -56,51 +39,17 @@ const RSVP = () => {
   const [guests, setGuests] = useState<Guest[]>([]);
   const [arrivalDate, setArrivalDate] = useState<Date>();
   const [departureDate, setDepartureDate] = useState<Date>();
-  const [hasExistingRSVP, setHasExistingRSVP] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-
-  // Load existing RSVP from localStorage on mount
-  useEffect(() => {
-    const savedRSVP = localStorage.getItem(RSVP_STORAGE_KEY);
-    if (savedRSVP) {
-      try {
-        const data: RSVPData = JSON.parse(savedRSVP);
-        setFormData(data.formData);
-        setGuests(data.guests);
-        setArrivalDate(data.arrivalDate ? parseISO(data.arrivalDate) : undefined);
-        setDepartureDate(data.departureDate ? parseISO(data.departureDate) : undefined);
-        setHasExistingRSVP(true);
-      } catch (error) {
-        console.error("Error loading saved RSVP:", error);
-      }
-    }
-  }, []);
-
-  const saveRSVP = () => {
-    const rsvpData: RSVPData = {
-      formData,
-      guests,
-      arrivalDate: arrivalDate ? arrivalDate.toISOString() : null,
-      departureDate: departureDate ? departureDate.toISOString() : null,
-      submittedAt: new Date().toISOString(),
-    };
-    localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(rsvpData));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    saveRSVP();
-    
-    const isUpdate = hasExistingRSVP && isEditing;
     toast({
-      title: isUpdate ? "RSVP Updated!" : "Thank you!",
-      description: isUpdate 
-        ? "Your RSVP has been updated successfully."
-        : "Your RSVP has been received. We can't wait to celebrate with you!",
+      title: "Thank you!",
+      description: "Your RSVP has been received. We can't wait to celebrate with you!",
     });
-    
-    setHasExistingRSVP(true);
-    setIsEditing(false);
+    setFormData({ name: "", email: "", dietary: "", allergies: "", accommodation: "", message: "" });
+    setGuests([]);
+    setArrivalDate(undefined);
+    setDepartureDate(undefined);
   };
 
   const handleChange = (
@@ -139,45 +88,6 @@ const RSVP = () => {
           subtitle="Please let us know if you can join us for our special day"
         />
         
-        {/* Show confirmation if RSVP exists and not editing */}
-        {hasExistingRSVP && !isEditing ? (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-xl mx-auto text-center"
-          >
-            <div className="bg-card rounded-2xl p-8 shadow-sm border border-border/50">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                <Check className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="font-serif text-2xl text-foreground mb-2">
-                You're on the list!
-              </h3>
-              <p className="text-muted-foreground mb-2">
-                <span className="font-medium text-foreground">{formData.name}</span>
-                {guests.length > 0 && (
-                  <span> + {guests.length} guest{guests.length > 1 ? 's' : ''}</span>
-                )}
-              </p>
-              <p className="text-sm text-muted-foreground mb-6">
-                RSVP received for {formData.email}
-              </p>
-              <Button
-                onClick={() => setIsEditing(true)}
-                variant="outline"
-                className="gap-2"
-              >
-                <Edit3 className="h-4 w-4" />
-                Edit RSVP
-              </Button>
-              <p className="text-xs text-muted-foreground mt-4">
-                Note: Your RSVP is saved on this device only
-              </p>
-            </div>
-          </motion.div>
-        ) : (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -185,21 +95,6 @@ const RSVP = () => {
           transition={{ duration: 0.6 }}
           className="max-w-xl mx-auto"
         >
-          {isEditing && (
-            <div className="mb-6 p-4 bg-primary/5 rounded-lg border border-primary/20 flex items-center justify-between">
-              <p className="text-sm text-foreground">
-                Editing your RSVP
-              </p>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsEditing(false)}
-                className="text-muted-foreground"
-              >
-                Cancel
-              </Button>
-            </div>
-          )}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="font-sans">
@@ -425,7 +320,7 @@ const RSVP = () => {
               type="submit"
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 uppercase tracking-widest font-sans"
             >
-              {isEditing ? "Update RSVP" : "Send RSVP"}
+              Send RSVP
             </Button>
           </form>
           
@@ -433,7 +328,6 @@ const RSVP = () => {
             Please RSVP by <span className="text-foreground font-medium">May 31, 2026</span>
           </p>
         </motion.div>
-        )}
       </div>
     </section>
   );
