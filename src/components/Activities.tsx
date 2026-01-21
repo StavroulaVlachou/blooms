@@ -80,47 +80,44 @@ const activities = [
 
 const Activities = () => {
   return (
-    <section id="activities" className="py-20 sm:py-32 bg-background">
+    <section id="activities" className="py-16 sm:py-24 bg-background">
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Discover Messinia"
           subtitle="Make the most of your visit to this beautiful corner of Greece"
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-6xl mx-auto">
           {activities.map((activity, index) => (
             <motion.a
               key={activity.title}
               href={activity.link}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all border border-border group hover:-translate-y-1"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border group hover:-translate-y-1"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-28 overflow-hidden">
                 <img
                   src={activity.image}
                   alt={activity.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className="absolute bottom-3 left-3 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
-                  <activity.icon className="w-5 h-5 text-primary" />
+                <div className="absolute bottom-2 left-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center">
+                  <activity.icon className="w-3.5 h-3.5 text-primary" />
                 </div>
               </div>
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-xl font-serif text-foreground mb-2">
+              <div className="p-3">
+                <div className="flex items-start justify-between gap-1">
+                  <h3 className="text-sm font-serif text-foreground leading-tight">
                     {activity.title}
                   </h3>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-1" />
+                  <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
                 </div>
-                <p className="text-muted-foreground font-sans text-sm">
-                  {activity.description}
-                </p>
               </div>
             </motion.a>
           ))}
