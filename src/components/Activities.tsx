@@ -118,9 +118,9 @@ const Activities = () => {
                   <img
                     src={activity.image}
                     alt={activity.title}
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 saturate-[0.85] brightness-[0.95] contrast-[1.05] sepia-[0.1] group-hover:saturate-100 group-hover:brightness-100 group-hover:sepia-0"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-stone-900/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <div className="flex items-center gap-2 mb-1">
