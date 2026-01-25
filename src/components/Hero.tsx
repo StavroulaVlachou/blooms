@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
-import churchHero from "@/assets/church-hero.png";
+import heroImage from "@/assets/hero-oldmoney.jpg";
 
 const Hero = () => {
   return (
@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${churchHero})` }}
+        style={{ backgroundImage: `url(${heroImage})` }}
       />
       
       {/* Overlay */}
