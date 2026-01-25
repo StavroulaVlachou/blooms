@@ -28,21 +28,21 @@ const accommodationOptions = [
 
 const Accommodation = () => {
   return (
-    <section id="accommodation" className="py-16 sm:py-24 bg-secondary/30">
+    <section id="accommodation" className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4">
         <SectionTitle
-          title="Where to Stay"
-          subtitle="Find the perfect place to rest during your visit to Messinia"
+          title="Accommodations"
+          subtitle="Curated places to stay during your visit to Messinia"
         />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {accommodationOptions.map((option, index) => (
               <motion.a
                 key={option.title}
@@ -52,24 +52,24 @@ const Accommodation = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`bg-card rounded-lg p-6 border border-border shadow-sm hover:shadow-md transition-all group hover:-translate-y-1 text-center ${
-                  option.placeholder ? 'opacity-70' : ''
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`bg-card p-8 border border-border hover:border-gold/40 transition-all duration-500 group text-center ${
+                  option.placeholder ? 'opacity-60' : ''
                 }`}
               >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <option.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 border border-gold/30 flex items-center justify-center mx-auto mb-6">
+                  <option.icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-serif text-foreground mb-2 flex items-center justify-center gap-2">
+                <h3 className="text-base font-serif text-foreground mb-3 flex items-center justify-center gap-2 font-medium">
                   {option.title}
-                  <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-gold transition-colors" />
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground font-light">
                   {option.description}
                 </p>
                 {option.placeholder && (
-                  <span className="inline-block mt-3 text-xs text-muted-foreground/60 italic">
-                    Link coming soon
+                  <span className="inline-block mt-4 text-[10px] text-muted-foreground/60 uppercase tracking-widest">
+                    Coming soon
                   </span>
                 )}
               </motion.a>

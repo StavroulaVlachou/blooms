@@ -81,23 +81,23 @@ const RSVP = () => {
   };
 
   return (
-    <section id="rsvp" className="py-20 sm:py-32 bg-background">
+    <section id="rsvp" className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4">
         <SectionTitle
-          title="RSVP"
-          subtitle="Please let us know if you can join us for our special day"
+          title="Répondez S'il Vous Plaît"
+          subtitle="We would be honored by your presence"
         />
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="max-w-xl mx-auto"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
             <div className="space-y-2">
-              <Label htmlFor="name" className="font-sans">
+              <Label htmlFor="name" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
                 Full Name *
               </Label>
               <Input
@@ -106,13 +106,13 @@ const RSVP = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-card border-border"
+                className="bg-card border-border h-12 font-light"
                 placeholder="Your full name"
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="email" className="font-sans">
+              <Label htmlFor="email" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
                 Email Address *
               </Label>
               <Input
@@ -122,18 +122,20 @@ const RSVP = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-card border-border"
+                className="bg-card border-border h-12 font-light"
                 placeholder="your@email.com"
               />
             </div>
 
             <div className="space-y-2">
-              <Label className="font-sans">Dietary Preference</Label>
+              <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                Dietary Preference
+              </Label>
               <Select
                 value={formData.dietary}
                 onValueChange={(value) => setFormData((prev) => ({ ...prev, dietary: value }))}
               >
-                <SelectTrigger className="bg-card border-border">
+                <SelectTrigger className="bg-card border-border h-12 font-light">
                   <SelectValue placeholder="Select dietary preference" />
                 </SelectTrigger>
                 <SelectContent className="bg-card border-border">
@@ -146,7 +148,7 @@ const RSVP = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="allergies" className="font-sans">
+              <Label htmlFor="allergies" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
                 Allergies
               </Label>
               <Input
@@ -154,7 +156,7 @@ const RSVP = () => {
                 name="allergies"
                 value={formData.allergies}
                 onChange={handleChange}
-                className="bg-card border-border"
+                className="bg-card border-border h-12 font-light"
                 placeholder="Any allergies or dietary restrictions"
               />
             </div>
@@ -162,15 +164,17 @@ const RSVP = () => {
             {/* Guest Management */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <Label className="font-sans">Additional Guests</Label>
+                <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                  Additional Guests
+                </Label>
                 <Button
                   type="button"
                   variant="outline"
                   size="sm"
                   onClick={addGuest}
-                  className="gap-1"
+                  className="gap-2 text-xs uppercase tracking-widest font-light border-gold/30 hover:border-gold hover:bg-gold/5"
                 >
-                  <Plus className="h-4 w-4" />
+                  <Plus className="h-3 w-3" />
                   Add Guest
                 </Button>
               </div>
@@ -181,10 +185,10 @@ const RSVP = () => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="p-4 border border-border rounded-lg bg-card/50 space-y-3"
+                  className="p-6 border border-border bg-card/50 space-y-4"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-muted-foreground">
+                    <span className="text-xs font-light text-muted-foreground uppercase tracking-widest">
                       Guest {index + 1}
                     </span>
                     <Button
@@ -192,7 +196,7 @@ const RSVP = () => {
                       variant="ghost"
                       size="sm"
                       onClick={() => removeGuest(guest.id)}
-                      className="text-destructive hover:text-destructive"
+                      className="text-destructive hover:text-destructive h-8 w-8 p-0"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -202,14 +206,14 @@ const RSVP = () => {
                     placeholder="Guest name"
                     value={guest.name}
                     onChange={(e) => updateGuest(guest.id, "name", e.target.value)}
-                    className="bg-card border-border"
+                    className="bg-card border-border h-12 font-light"
                   />
                   
                   <Select
                     value={guest.dietary}
                     onValueChange={(value) => updateGuest(guest.id, "dietary", value)}
                   >
-                    <SelectTrigger className="bg-card border-border">
+                    <SelectTrigger className="bg-card border-border h-12 font-light">
                       <SelectValue placeholder="Dietary preference" />
                     </SelectTrigger>
                     <SelectContent className="bg-card border-border">
@@ -224,7 +228,7 @@ const RSVP = () => {
                     placeholder="Allergies (if any)"
                     value={guest.allergies}
                     onChange={(e) => updateGuest(guest.id, "allergies", e.target.value)}
-                    className="bg-card border-border"
+                    className="bg-card border-border h-12 font-light"
                   />
                 </motion.div>
               ))}
@@ -232,7 +236,7 @@ const RSVP = () => {
 
             {/* Accommodation */}
             <div className="space-y-2">
-              <Label htmlFor="accommodation" className="font-sans">
+              <Label htmlFor="accommodation" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
                 Accommodation
               </Label>
               <Input
@@ -240,25 +244,27 @@ const RSVP = () => {
                 name="accommodation"
                 value={formData.accommodation}
                 onChange={handleChange}
-                className="bg-card border-border"
+                className="bg-card border-border h-12 font-light"
                 placeholder="Hotel or accommodation name"
               />
             </div>
 
             {/* Arrival & Departure Dates */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label className="font-sans">Arrival Date</Label>
+                <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                  Arrival Date
+                </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
                       className={cn(
-                        "w-full justify-start text-left font-normal bg-card border-border",
+                        "w-full justify-start text-left font-light bg-card border-border h-12",
                         !arrivalDate && "text-muted-foreground"
                       )}
                     >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      <CalendarIcon className="mr-3 h-4 w-4 text-gold" />
                       {arrivalDate ? format(arrivalDate, "PPP") : "Select date"}
                     </Button>
                   </PopoverTrigger>
@@ -275,17 +281,19 @@ const RSVP = () => {
               </div>
 
               <div className="space-y-2">
-                <Label className="font-sans">Departure Date</Label>
+                <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                  Departure Date
+                </Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
                       className={cn(
-                        "w-full justify-start text-left font-normal bg-card border-border",
+                        "w-full justify-start text-left font-light bg-card border-border h-12",
                         !departureDate && "text-muted-foreground"
                       )}
                     >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      <CalendarIcon className="mr-3 h-4 w-4 text-gold" />
                       {departureDate ? format(departureDate, "PPP") : "Select date"}
                     </Button>
                   </PopoverTrigger>
@@ -303,7 +311,7 @@ const RSVP = () => {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="message" className="font-sans">
+              <Label htmlFor="message" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
                 Message for the Couple
               </Label>
               <Textarea
@@ -311,21 +319,21 @@ const RSVP = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="bg-card border-border min-h-[120px]"
+                className="bg-card border-border min-h-[140px] font-light"
                 placeholder="Share your wishes or any questions..."
               />
             </div>
             
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 uppercase tracking-widest font-sans"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 uppercase tracking-[0.3em] text-xs font-light"
             >
-              Send RSVP
+              Send Response
             </Button>
           </form>
           
-          <p className="text-center text-muted-foreground text-sm mt-6 font-sans">
-            Please RSVP by <span className="text-foreground font-medium">May 31, 2026</span>
+          <p className="text-center text-muted-foreground text-xs mt-8 font-light uppercase tracking-widest">
+            Kindly respond by <span className="text-foreground">May 31, 2026</span>
           </p>
         </motion.div>
       </div>

@@ -89,18 +89,18 @@ const activities = [
 
 const Activities = () => {
   return (
-    <section id="activities" className="py-16 sm:py-24 bg-background">
+    <section id="activities" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Discover Messinia"
           subtitle="Make the most of your visit to this beautiful corner of Greece"
         />
         
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 max-w-5xl mx-auto">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 max-w-5xl mx-auto">
           {activities.map((activity, index) => {
             const heightClass = 
-              activity.size === "large" ? "h-72" : 
-              activity.size === "medium" ? "h-56" : "h-44";
+              activity.size === "large" ? "h-80" : 
+              activity.size === "medium" ? "h-64" : "h-52";
             
             return (
               <motion.a
@@ -111,31 +111,31 @@ const Activities = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="block mb-4 break-inside-avoid group"
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="block mb-5 break-inside-avoid group"
               >
-                <div className={`relative ${heightClass} rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all`}>
+                <div className={`relative ${heightClass} overflow-hidden`}>
                   <img
                     src={activity.image}
                     alt={activity.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="flex items-center gap-2 mb-1">
-                      <activity.icon className="w-4 h-4 text-white/80" />
-                      <h3 className="text-white font-serif text-lg">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <activity.icon className="w-4 h-4 text-gold" strokeWidth={1.5} />
+                      <h3 className="text-white font-serif text-lg font-medium">
                         {activity.title}
                       </h3>
                     </div>
-                    <p className="text-white/80 text-sm leading-snug">
+                    <p className="text-white/70 text-sm font-light leading-relaxed">
                       {activity.description}
                     </p>
                   </div>
                   
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ExternalLink className="w-4 h-4 text-white" />
+                  <div className="absolute top-4 right-4 w-8 h-8 border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ExternalLink className="w-3.5 h-3.5 text-white" />
                   </div>
                 </div>
               </motion.a>

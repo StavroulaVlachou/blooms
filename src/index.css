@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,55 +6,58 @@
 
 @layer base {
   :root {
-    /* Mediterranean Wedding Palette */
-    --background: 40 33% 97%;
-    --foreground: 25 20% 20%;
+    /* Elegant & Timeless Palette */
+    --background: 40 25% 97%;
+    --foreground: 220 15% 20%;
 
-    --card: 40 40% 98%;
-    --card-foreground: 25 20% 20%;
+    --card: 40 30% 99%;
+    --card-foreground: 220 15% 20%;
 
-    --popover: 40 40% 98%;
-    --popover-foreground: 25 20% 20%;
+    --popover: 40 30% 99%;
+    --popover-foreground: 220 15% 20%;
 
-    /* Terracotta - warm, romantic */
-    --primary: 16 65% 55%;
-    --primary-foreground: 40 40% 98%;
+    /* Deep Charcoal - sophisticated, grounding */
+    --primary: 220 15% 25%;
+    --primary-foreground: 40 30% 97%;
 
-    /* Warm Sand */
-    --secondary: 40 30% 90%;
-    --secondary-foreground: 25 20% 25%;
+    /* Warm Ivory */
+    --secondary: 40 35% 95%;
+    --secondary-foreground: 220 15% 25%;
 
     /* Soft Stone */
-    --muted: 40 20% 92%;
-    --muted-foreground: 25 15% 45%;
+    --muted: 40 15% 92%;
+    --muted-foreground: 220 10% 50%;
 
-    /* Olive Green Accent */
-    --accent: 82 35% 45%;
-    --accent-foreground: 40 40% 98%;
+    /* Sage Green - organic, refined */
+    --accent: 150 20% 45%;
+    --accent-foreground: 40 30% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 40 25% 85%;
-    --input: 40 25% 85%;
-    --ring: 16 65% 55%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 43 55% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    /* Mediterranean Blue */
-    --mediterranean: 205 65% 55%;
-    --mediterranean-foreground: 40 40% 98%;
+    /* Champagne Gold - elegant accent */
+    --gold: 43 55% 55%;
+    --gold-foreground: 220 15% 15%;
 
-    /* Gold accent */
-    --gold: 43 75% 55%;
-    --gold-foreground: 25 20% 15%;
+    /* Deep Navy - for contrast */
+    --navy: 220 30% 20%;
+    --navy-foreground: 40 30% 97%;
 
-    /* Cream */
-    --cream: 45 45% 95%;
+    /* Warm Cream */
+    --cream: 45 40% 96%;
+
+    /* Blush - romantic touch */
+    --blush: 10 40% 92%;
 
     /* Typography */
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-sans: 'Montserrat', system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Lato', -apple-system, sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -67,41 +70,43 @@
   }
 
   .dark {
-    --background: 25 20% 12%;
-    --foreground: 40 33% 95%;
+    --background: 220 20% 10%;
+    --foreground: 40 25% 95%;
 
-    --card: 25 20% 15%;
-    --card-foreground: 40 33% 95%;
+    --card: 220 20% 13%;
+    --card-foreground: 40 25% 95%;
 
-    --popover: 25 20% 15%;
-    --popover-foreground: 40 33% 95%;
+    --popover: 220 20% 13%;
+    --popover-foreground: 40 25% 95%;
 
-    --primary: 16 65% 55%;
-    --primary-foreground: 40 40% 98%;
+    --primary: 40 25% 90%;
+    --primary-foreground: 220 20% 12%;
 
-    --secondary: 25 20% 20%;
-    --secondary-foreground: 40 33% 90%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 25% 90%;
 
-    --muted: 25 15% 25%;
-    --muted-foreground: 40 20% 65%;
+    --muted: 220 15% 22%;
+    --muted-foreground: 40 15% 65%;
 
-    --accent: 82 35% 45%;
-    --accent-foreground: 40 40% 98%;
+    --accent: 150 25% 40%;
+    --accent-foreground: 40 30% 97%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 25 15% 25%;
-    --input: 25 15% 25%;
-    --ring: 16 65% 55%;
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 43 55% 55%;
 
-    --mediterranean: 205 65% 55%;
-    --mediterranean-foreground: 40 40% 98%;
+    --gold: 43 55% 55%;
+    --gold-foreground: 220 15% 15%;
 
-    --gold: 43 75% 55%;
-    --gold-foreground: 25 20% 15%;
+    --navy: 220 30% 25%;
+    --navy-foreground: 40 30% 97%;
 
-    --cream: 25 20% 18%;
+    --cream: 220 15% 15%;
+
+    --blush: 10 20% 18%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -120,13 +125,16 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -140,7 +148,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--gold)) 100%);
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold) / 0.7) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -149,9 +157,9 @@
   .bg-hero-overlay {
     background: linear-gradient(
       to bottom,
-      hsla(var(--foreground) / 0.3) 0%,
-      hsla(var(--foreground) / 0.5) 50%,
-      hsla(var(--foreground) / 0.7) 100%
+      hsla(220, 20%, 10%, 0.2) 0%,
+      hsla(220, 20%, 10%, 0.4) 50%,
+      hsla(220, 20%, 10%, 0.6) 100%
     );
   }
 
@@ -159,16 +167,32 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      hsl(var(--primary) / 0.3) 20%,
-      hsl(var(--primary)) 50%,
-      hsl(var(--primary) / 0.3) 80%,
+      hsl(var(--gold) / 0.3) 20%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--gold) / 0.3) 80%,
       transparent 100%
     );
     height: 1px;
+  }
+
+  .elegant-border {
+    border: 1px solid hsl(var(--gold) / 0.3);
+  }
+
+  .elegant-shadow {
+    box-shadow: 
+      0 4px 6px -1px hsl(var(--foreground) / 0.03),
+      0 2px 4px -2px hsl(var(--foreground) / 0.03);
   }
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+
+  /* Elegant selection color */
+  ::selection {
+    background: hsl(var(--gold) / 0.2);
+    color: hsl(var(--foreground));
+  }
 }

@@ -43,38 +43,38 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 bg-secondary/30">
+    <section id="faq" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <SectionTitle
-          title="Frequently Asked Questions"
-          subtitle="Everything you need to know about our wedding celebration"
+          title="Questions & Answers"
+          subtitle="Everything you need to know"
         />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
+          transition={{ duration: 0.8 }}
+          className="max-w-2xl mx-auto"
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card rounded-xl border border-border px-6 shadow-sm"
+                className="bg-card border border-border px-8"
               >
-                <AccordionTrigger className="hover:no-underline py-5">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <faq.icon className="w-5 h-5 text-primary" />
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <div className="flex items-center gap-5">
+                    <div className="w-10 h-10 border border-gold/30 flex items-center justify-center flex-shrink-0">
+                      <faq.icon className="w-4 h-4 text-gold" strokeWidth={1.5} />
                     </div>
-                    <span className="text-left font-serif text-lg text-foreground">
+                    <span className="text-left font-serif text-base text-foreground font-medium">
                       {faq.question}
                     </span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-sans pb-5 pl-14">
+                <AccordionContent className="text-muted-foreground font-light pb-6 pl-[60px] leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
