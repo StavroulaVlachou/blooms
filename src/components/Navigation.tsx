@@ -27,29 +27,29 @@ const Navigation = () => {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-card/95 backdrop-blur-md shadow-md py-3"
-            : "bg-transparent py-6"
+            ? "bg-background/95 backdrop-blur-sm border-b border-border py-4"
+            : "bg-transparent py-8"
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <a href="#" className="font-serif text-xl sm:text-2xl">
-            <span className={isScrolled ? "text-primary" : "text-primary-foreground"}>
-              E <span className="text-gold">&</span> R
+          <a href="#" className="font-serif text-xl tracking-wide">
+            <span className={`transition-colors duration-500 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+              E <span className="text-gold italic font-light">&</span> R
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`text-sm uppercase tracking-wider font-sans transition-colors hover:text-primary ${
+                  className={`text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-gold ${
                     isScrolled ? "text-foreground" : "text-primary-foreground"
                   }`}
                 >
@@ -62,11 +62,11 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 ${
+            className={`md:hidden p-2 transition-colors duration-500 ${
               isScrolled ? "text-foreground" : "text-primary-foreground"
             }`}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </motion.nav>
@@ -75,22 +75,28 @@ const Navigation = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-card pt-24 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-background pt-28 md:hidden"
           >
-            <ul className="flex flex-col items-center gap-8 p-8">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+            <ul className="flex flex-col items-center gap-10 p-8">
+              {navLinks.map((link, index) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
                   <a
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg uppercase tracking-wider font-sans text-foreground hover:text-primary transition-colors"
+                    className="text-sm uppercase tracking-[0.2em] font-sans font-light text-foreground hover:text-gold transition-colors"
                   >
                     {link.label}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

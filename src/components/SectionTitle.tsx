@@ -11,18 +11,24 @@ const SectionTitle = ({ title, subtitle }: SectionTitleProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-12"
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="text-center mb-16 sm:mb-20"
     >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-foreground mb-4">
+      <div className="flex items-center justify-center gap-4 mb-6">
+        <div className="h-px w-12 bg-gradient-to-r from-transparent to-gold/50" />
+        <span className="text-gold text-xs uppercase tracking-[0.4em] font-sans font-light">•</span>
+        <div className="h-px w-12 bg-gradient-to-l from-transparent to-gold/50" />
+      </div>
+      
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-foreground mb-6 font-medium tracking-tight">
         {title}
       </h2>
+      
       {subtitle && (
-        <p className="text-muted-foreground font-sans max-w-2xl mx-auto">
+        <p className="text-muted-foreground font-sans font-light max-w-xl mx-auto leading-relaxed">
           {subtitle}
         </p>
       )}
-      <div className="section-divider w-32 mx-auto mt-6" />
     </motion.div>
   );
 };

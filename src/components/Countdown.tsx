@@ -44,21 +44,21 @@ const Countdown = () => {
   ];
 
   return (
-    <div className="flex gap-3 sm:gap-6 justify-center">
+    <div className="flex gap-4 sm:gap-8 justify-center">
       {timeBlocks.map((block, index) => (
         <motion.div
           key={block.label}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 + 0.5 }}
+          transition={{ delay: index * 0.1 + 0.8, duration: 0.6 }}
           className="flex flex-col items-center"
         >
-          <div className="bg-card/90 backdrop-blur-sm rounded-lg p-3 sm:p-5 min-w-[60px] sm:min-w-[90px] shadow-lg border border-primary/20">
-            <span className="text-2xl sm:text-4xl md:text-5xl font-serif text-primary font-medium">
+          <div className="border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm p-4 sm:p-6 min-w-[65px] sm:min-w-[90px]">
+            <span className="text-2xl sm:text-4xl md:text-5xl font-serif text-primary-foreground font-medium block text-center">
               {String(block.value).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-xs sm:text-sm text-primary-foreground/80 mt-2 uppercase tracking-widest font-sans">
+          <span className="text-[10px] sm:text-xs text-primary-foreground/60 mt-3 uppercase tracking-[0.3em] font-sans font-light">
             {block.label}
           </span>
         </motion.div>

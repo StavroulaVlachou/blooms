@@ -42,44 +42,44 @@ const events: Event[] = [
 
 const DayOf = () => {
   return (
-    <section id="day-of" className="py-20 sm:py-32 bg-secondary/30">
+    <section id="day-of" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <SectionTitle
-          title="Day Of"
-          subtitle="Join us as we celebrate our special day"
+          title="The Celebration"
+          subtitle="An evening of joy and togetherness"
         />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="max-w-2xl mx-auto"
         >
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-primary/30 hidden sm:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gold/20 hidden sm:block" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {events.map((event, index) => (
                 <motion.div
                   key={event.title}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex items-start gap-6"
                 >
                   {/* Icon circle */}
-                  <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mt-2">
-                    <event.icon className="w-7 h-7 text-primary" />
+                  <div className="relative z-10 flex-shrink-0 w-16 h-16 border border-gold/30 bg-background flex items-center justify-center">
+                    <event.icon className="w-6 h-6 text-gold" strokeWidth={1.5} />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1">
                     <div 
-                      className={`relative flex items-center justify-between py-4 px-6 rounded-lg border border-border overflow-hidden ${
-                        event.image ? 'min-h-[180px]' : 'bg-card'
+                      className={`relative flex items-center justify-between py-6 px-8 border border-border overflow-hidden ${
+                        event.image ? 'min-h-[200px]' : 'bg-card'
                       }`}
                     >
                       {event.image && (
@@ -89,13 +89,13 @@ const DayOf = () => {
                             alt={event.title}
                             className="absolute inset-0 w-full h-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-black/50" />
+                          <div className="absolute inset-0 bg-foreground/50" />
                         </>
                       )}
-                      <h3 className={`relative z-10 font-serif text-xl ${event.image ? 'text-white' : 'text-foreground'}`}>
+                      <h3 className={`relative z-10 font-serif text-xl font-medium ${event.image ? 'text-white' : 'text-foreground'}`}>
                         {event.title}
                       </h3>
-                      <span className={`relative z-10 font-sans font-medium text-lg ${event.image ? 'text-white' : 'text-primary'}`}>
+                      <span className={`relative z-10 font-sans text-sm tracking-widest ${event.image ? 'text-white/80' : 'text-gold'}`}>
                         {event.time}
                       </span>
                     </div>
