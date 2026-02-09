@@ -53,12 +53,12 @@ const Countdown = () => {
           transition={{ delay: index * 0.1 + 0.8, duration: 0.6 }}
           className="flex flex-col items-center"
         >
-          <div className="border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm p-4 sm:p-6 min-w-[65px] sm:min-w-[90px]">
-            <span className="text-2xl sm:text-4xl md:text-5xl font-serif text-primary-foreground font-medium block text-center">
+          <div className="border border-white/20 bg-white/5 backdrop-blur-sm p-4 sm:p-6 min-w-[65px] sm:min-w-[90px]">
+            <span className="text-2xl sm:text-4xl md:text-5xl font-serif text-white font-medium block text-center">
               {String(block.value).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-[10px] sm:text-xs text-primary-foreground/60 mt-3 uppercase tracking-[0.3em] font-sans font-light">
+          <span className="text-[10px] sm:text-xs text-white/60 mt-3 uppercase tracking-[0.3em] font-sans font-light">
             {block.label}
           </span>
         </motion.div>
