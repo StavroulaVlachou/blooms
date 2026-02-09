@@ -10,7 +10,7 @@ const pages = [
 
 const SaveTheDate = () => {
   return (
-    <section id="save-the-date" className="py-20 sm:py-32 bg-cream">
+    <section id="save-the-date" className="py-20 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Save the Date"
