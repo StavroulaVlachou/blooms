@@ -38,7 +38,7 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
           <a href="#" className="font-serif text-xl tracking-wide">
-            <span className={`transition-colors duration-500 ${isScrolled ? "text-foreground" : "text-white"}`}>
+            <span className={`transition-colors duration-500 text-foreground`}>
               E <span className="text-gold italic font-light">&</span> R
             </span>
           </a>
@@ -49,9 +49,7 @@ const Navigation = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-gold ${
-                    isScrolled ? "text-foreground" : "text-white"
-                  }`}
+                  className="text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-gold text-foreground"
                 >
                   {link.label}
                 </a>
@@ -62,9 +60,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 transition-colors duration-500 ${
-              isScrolled ? "text-foreground" : "text-white"
-            }`}
+            className="md:hidden p-2 transition-colors duration-500 text-foreground"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>

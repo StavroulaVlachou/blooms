@@ -8,52 +8,52 @@
   :root {
     /* Light Dusty Blue Palette */
     --background: 210 30% 96%;
-    --foreground: 215 25% 15%;
+    --foreground: 215 35% 12%;
 
     --card: 210 25% 93%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 215 35% 12%;
 
     --popover: 210 25% 93%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 215 35% 12%;
 
     /* Dusty Blue */
-    --primary: 210 25% 40%;
+    --primary: 210 35% 32%;
     --primary-foreground: 210 30% 96%;
 
     /* Light Blue-Grey */
-    --secondary: 210 20% 90%;
-    --secondary-foreground: 215 20% 25%;
+    --secondary: 210 20% 88%;
+    --secondary-foreground: 215 30% 20%;
 
     /* Soft Blue Mist */
-    --muted: 210 15% 88%;
-    --muted-foreground: 215 10% 45%;
+    --muted: 210 15% 85%;
+    --muted-foreground: 215 15% 38%;
 
     /* Sage accent */
-    --accent: 170 15% 40%;
+    --accent: 170 20% 35%;
     --accent-foreground: 210 30% 96%;
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 18% 85%;
-    --input: 210 18% 85%;
-    --ring: 210 35% 50%;
+    --border: 210 22% 78%;
+    --input: 210 22% 78%;
+    --ring: 210 40% 45%;
 
     --radius: 0.125rem;
 
-    /* Antique Gold on dusty blue */
-    --gold: 210 30% 55%;
+    /* Antique Gold - warmer and more visible */
+    --gold: 38 45% 45%;
     --gold-foreground: 210 30% 96%;
 
     /* Deep Slate */
-    --navy: 215 30% 20%;
+    --navy: 215 35% 16%;
     --navy-foreground: 210 30% 96%;
 
     /* Pale Blue */
     --cream: 210 35% 94%;
 
     /* Dusty Rose */
-    --blush: 350 20% 65%;
+    --blush: 350 25% 58%;
 
     /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;
