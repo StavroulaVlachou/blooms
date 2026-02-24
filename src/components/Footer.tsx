@@ -8,7 +8,7 @@ const Footer = () => {
         
         <div className="flex items-center justify-center gap-4 text-xs font-sans text-green-accent-foreground/60 mb-8 uppercase tracking-[0.2em] font-light">
           <span>30 August 2026</span>
-          <span className="text-gold">•</span>
+          <span className="text-green-accent">•</span>
           <span>Messinia, Greece</span>
         </div>
         
