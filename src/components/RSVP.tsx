@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -6,7 +6,7 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Plus, Trash2, CalendarIcon } from "lucide-react";
+import { Plus, Trash2, CalendarIcon, Check, X, Bus } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -18,6 +18,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { Checkbox } from "./ui/checkbox";
 
 interface Guest {
   id: string;
@@ -28,6 +29,8 @@ interface Guest {
 
 const RSVP = () => {
   const { toast } = useToast();
+  const [attending, setAttending] = useState<boolean | null>(null);
+  const [needsTransport, setNeedsTransport] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,13 +46,17 @@ const RSVP = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Thank you!",
-      description: "Your RSVP has been received. We can't wait to celebrate with you!",
+      title: attending ? "Thank you!" : "We'll miss you!",
+      description: attending
+        ? "Your RSVP has been received. We can't wait to celebrate with you!"
+        : "Thank you for letting us know. We hope to see you another time!",
     });
     setFormData({ name: "", email: "", dietary: "", allergies: "", accommodation: "", message: "" });
     setGuests([]);
     setArrivalDate(undefined);
     setDepartureDate(undefined);
+    setAttending(null);
+    setNeedsTransport(false);
   };
 
   const handleChange = (
@@ -96,240 +103,314 @@ const RSVP = () => {
           className="max-w-xl mx-auto"
         >
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="space-y-2">
-              <Label htmlFor="name" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                Full Name *
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="bg-card border-border h-12 font-light"
-                placeholder="Your full name"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="email" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                Email Address *
-              </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="bg-card border-border h-12 font-light"
-                placeholder="your@email.com"
-              />
-            </div>
-
-            <div className="space-y-2">
+            {/* Attending / Declining Toggle */}
+            <div className="space-y-3">
               <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                Dietary Preference
+                Will you be joining us? *
               </Label>
-              <Select
-                value={formData.dietary}
-                onValueChange={(value) => setFormData((prev) => ({ ...prev, dietary: value }))}
-              >
-                <SelectTrigger className="bg-card border-border h-12 font-light">
-                  <SelectValue placeholder="Select dietary preference" />
-                </SelectTrigger>
-                <SelectContent className="bg-card border-border">
-                  <SelectItem value="normal">No restrictions</SelectItem>
-                  <SelectItem value="vegetarian">Vegetarian</SelectItem>
-                  <SelectItem value="vegan">Vegan</SelectItem>
-                  <SelectItem value="pescetarian">Pescetarian</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="allergies" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                Allergies
-              </Label>
-              <Input
-                id="allergies"
-                name="allergies"
-                value={formData.allergies}
-                onChange={handleChange}
-                className="bg-card border-border h-12 font-light"
-                placeholder="Any allergies or dietary restrictions"
-              />
-            </div>
-
-            {/* Guest Management */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                  Additional Guests
-                </Label>
-                <Button
+              <div className="grid grid-cols-2 gap-4">
+                <button
                   type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={addGuest}
-                  className="gap-2 text-xs uppercase tracking-widest font-light border-gold/30 hover:border-gold hover:bg-gold/5"
+                  onClick={() => setAttending(true)}
+                  className={cn(
+                    "h-14 border flex items-center justify-center gap-3 transition-all duration-300 font-sans text-xs uppercase tracking-[0.2em] font-light",
+                    attending === true
+                      ? "border-gold bg-gold/10 text-foreground"
+                      : "border-border bg-card text-muted-foreground hover:border-gold/40"
+                  )}
                 >
-                  <Plus className="h-3 w-3" />
-                  Add Guest
-                </Button>
+                  <Check className="w-4 h-4" strokeWidth={1.5} />
+                  Joyfully Accept
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAttending(false)}
+                  className={cn(
+                    "h-14 border flex items-center justify-center gap-3 transition-all duration-300 font-sans text-xs uppercase tracking-[0.2em] font-light",
+                    attending === false
+                      ? "border-gold bg-gold/10 text-foreground"
+                      : "border-border bg-card text-muted-foreground hover:border-gold/40"
+                  )}
+                >
+                  <X className="w-4 h-4" strokeWidth={1.5} />
+                  Regretfully Decline
+                </button>
               </div>
+            </div>
 
-              {guests.map((guest, index) => (
+            <AnimatePresence mode="wait">
+              {attending !== null && (
                 <motion.div
-                  key={guest.id}
+                  key={attending ? "accept" : "decline"}
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="p-6 border border-border bg-card/50 space-y-4"
+                  transition={{ duration: 0.4 }}
+                  className="space-y-8 overflow-hidden"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-light text-muted-foreground uppercase tracking-widest">
-                      Guest {index + 1}
-                    </span>
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeGuest(guest.id)}
-                      className="text-destructive hover:text-destructive h-8 w-8 p-0"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                      Full Name *
+                    </Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="bg-card border-border h-12 font-light"
+                      placeholder="Your full name"
+                    />
                   </div>
                   
-                  <Input
-                    placeholder="Guest name"
-                    value={guest.name}
-                    onChange={(e) => updateGuest(guest.id, "name", e.target.value)}
-                    className="bg-card border-border h-12 font-light"
-                  />
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                      Email Address *
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="bg-card border-border h-12 font-light"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  {attending && (
+                    <>
+                      <div className="space-y-2">
+                        <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                          Dietary Preference
+                        </Label>
+                        <Select
+                          value={formData.dietary}
+                          onValueChange={(value) => setFormData((prev) => ({ ...prev, dietary: value }))}
+                        >
+                          <SelectTrigger className="bg-card border-border h-12 font-light">
+                            <SelectValue placeholder="Select dietary preference" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-card border-border">
+                            <SelectItem value="normal">No restrictions</SelectItem>
+                            <SelectItem value="vegetarian">Vegetarian</SelectItem>
+                            <SelectItem value="vegan">Vegan</SelectItem>
+                            <SelectItem value="pescetarian">Pescetarian</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="allergies" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                          Allergies
+                        </Label>
+                        <Input
+                          id="allergies"
+                          name="allergies"
+                          value={formData.allergies}
+                          onChange={handleChange}
+                          className="bg-card border-border h-12 font-light"
+                          placeholder="Any allergies or dietary restrictions"
+                        />
+                      </div>
+
+                      {/* Guest Management */}
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                            Additional Guests
+                          </Label>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={addGuest}
+                            className="gap-2 text-xs uppercase tracking-widest font-light border-gold/30 hover:border-gold hover:bg-gold/5"
+                          >
+                            <Plus className="h-3 w-3" />
+                            Add Guest
+                          </Button>
+                        </div>
+
+                        {guests.map((guest, index) => (
+                          <motion.div
+                            key={guest.id}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="p-6 border border-border bg-card/50 space-y-4"
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-light text-muted-foreground uppercase tracking-widest">
+                                Guest {index + 1}
+                              </span>
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => removeGuest(guest.id)}
+                                className="text-destructive hover:text-destructive h-8 w-8 p-0"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </Button>
+                            </div>
+                            
+                            <Input
+                              placeholder="Guest name"
+                              value={guest.name}
+                              onChange={(e) => updateGuest(guest.id, "name", e.target.value)}
+                              className="bg-card border-border h-12 font-light"
+                            />
+                            
+                            <Select
+                              value={guest.dietary}
+                              onValueChange={(value) => updateGuest(guest.id, "dietary", value)}
+                            >
+                              <SelectTrigger className="bg-card border-border h-12 font-light">
+                                <SelectValue placeholder="Dietary preference" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-card border-border">
+                                <SelectItem value="normal">No restrictions</SelectItem>
+                                <SelectItem value="vegetarian">Vegetarian</SelectItem>
+                                <SelectItem value="vegan">Vegan</SelectItem>
+                                <SelectItem value="pescetarian">Pescetarian</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            
+                            <Input
+                              placeholder="Allergies (if any)"
+                              value={guest.allergies}
+                              onChange={(e) => updateGuest(guest.id, "allergies", e.target.value)}
+                              className="bg-card border-border h-12 font-light"
+                            />
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Accommodation */}
+                      <div className="space-y-2">
+                        <Label htmlFor="accommodation" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                          Accommodation
+                        </Label>
+                        <Input
+                          id="accommodation"
+                          name="accommodation"
+                          value={formData.accommodation}
+                          onChange={handleChange}
+                          className="bg-card border-border h-12 font-light"
+                          placeholder="Hotel or accommodation name"
+                        />
+                      </div>
+
+                      {/* Arrival & Departure Dates */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                            Arrival Date
+                          </Label>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="outline"
+                                className={cn(
+                                  "w-full justify-start text-left font-light bg-card border-border h-12",
+                                  !arrivalDate && "text-muted-foreground"
+                                )}
+                              >
+                                <CalendarIcon className="mr-3 h-4 w-4 text-gold" />
+                                {arrivalDate ? format(arrivalDate, "PPP") : "Select date"}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
+                              <Calendar
+                                mode="single"
+                                selected={arrivalDate}
+                                onSelect={setArrivalDate}
+                                initialFocus
+                                className="p-3 pointer-events-auto"
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                            Departure Date
+                          </Label>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button
+                                variant="outline"
+                                className={cn(
+                                  "w-full justify-start text-left font-light bg-card border-border h-12",
+                                  !departureDate && "text-muted-foreground"
+                                )}
+                              >
+                                <CalendarIcon className="mr-3 h-4 w-4 text-gold" />
+                                {departureDate ? format(departureDate, "PPP") : "Select date"}
+                              </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
+                              <Calendar
+                                mode="single"
+                                selected={departureDate}
+                                onSelect={setDepartureDate}
+                                initialFocus
+                                className="p-3 pointer-events-auto"
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+                      </div>
+
+                      {/* Transportation Checkbox */}
+                      <div className="flex items-start space-x-4 p-6 border border-border bg-card/50">
+                        <Checkbox
+                          id="transport"
+                          checked={needsTransport}
+                          onCheckedChange={(checked) => setNeedsTransport(checked === true)}
+                          className="mt-0.5 border-gold/40 data-[state=checked]:bg-gold data-[state=checked]:border-gold"
+                        />
+                        <div className="space-y-1">
+                          <Label
+                            htmlFor="transport"
+                            className="font-sans text-sm font-light text-foreground cursor-pointer leading-relaxed"
+                          >
+                            <Bus className="w-4 h-4 inline-block mr-2 text-gold" strokeWidth={1.5} />
+                            We will need transportation on the wedding day
+                          </Label>
+                          <p className="text-xs text-muted-foreground font-light">
+                            Shuttle service between the church and the reception venue
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
+                      {attending ? "Message for the Couple" : "Send us a note (optional)"}
+                    </Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="bg-card border-border min-h-[140px] font-light"
+                      placeholder={attending ? "Share your wishes or any questions..." : "We'd love to hear from you..."}
+                    />
+                  </div>
                   
-                  <Select
-                    value={guest.dietary}
-                    onValueChange={(value) => updateGuest(guest.id, "dietary", value)}
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 uppercase tracking-[0.3em] text-xs font-light"
                   >
-                    <SelectTrigger className="bg-card border-border h-12 font-light">
-                      <SelectValue placeholder="Dietary preference" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-card border-border">
-                      <SelectItem value="normal">No restrictions</SelectItem>
-                      <SelectItem value="vegetarian">Vegetarian</SelectItem>
-                      <SelectItem value="vegan">Vegan</SelectItem>
-                      <SelectItem value="pescetarian">Pescetarian</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  
-                  <Input
-                    placeholder="Allergies (if any)"
-                    value={guest.allergies}
-                    onChange={(e) => updateGuest(guest.id, "allergies", e.target.value)}
-                    className="bg-card border-border h-12 font-light"
-                  />
+                    Send Response
+                  </Button>
                 </motion.div>
-              ))}
-            </div>
-
-            {/* Accommodation */}
-            <div className="space-y-2">
-              <Label htmlFor="accommodation" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                Accommodation
-              </Label>
-              <Input
-                id="accommodation"
-                name="accommodation"
-                value={formData.accommodation}
-                onChange={handleChange}
-                className="bg-card border-border h-12 font-light"
-                placeholder="Hotel or accommodation name"
-              />
-            </div>
-
-            {/* Arrival & Departure Dates */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                  Arrival Date
-                </Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-light bg-card border-border h-12",
-                        !arrivalDate && "text-muted-foreground"
-                      )}
-                    >
-                      <CalendarIcon className="mr-3 h-4 w-4 text-gold" />
-                      {arrivalDate ? format(arrivalDate, "PPP") : "Select date"}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={arrivalDate}
-                      onSelect={setArrivalDate}
-                      initialFocus
-                      className="p-3 pointer-events-auto"
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
-
-              <div className="space-y-2">
-                <Label className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                  Departure Date
-                </Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-light bg-card border-border h-12",
-                        !departureDate && "text-muted-foreground"
-                      )}
-                    >
-                      <CalendarIcon className="mr-3 h-4 w-4 text-gold" />
-                      {departureDate ? format(departureDate, "PPP") : "Select date"}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={departureDate}
-                      onSelect={setDepartureDate}
-                      initialFocus
-                      className="p-3 pointer-events-auto"
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="message" className="font-sans text-xs uppercase tracking-widest font-light text-muted-foreground">
-                Message for the Couple
-              </Label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="bg-card border-border min-h-[140px] font-light"
-                placeholder="Share your wishes or any questions..."
-              />
-            </div>
-            
-            <Button
-              type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 uppercase tracking-[0.3em] text-xs font-light"
-            >
-              Send Response
-            </Button>
+              )}
+            </AnimatePresence>
           </form>
           
           <p className="text-center text-muted-foreground text-xs mt-8 font-light uppercase tracking-widest">
