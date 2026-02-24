@@ -17,9 +17,9 @@ const faqs = [
   },
   {
     icon: Shirt,
-    question: "What is the dress code?",
+    question: "What should I wear?",
     answer:
-      "For the rehearsal dinner, the dress code is cocktail attire. For the wedding ceremony and reception, we ask for formal attire — think summery, fun, and colorful! Please bring a jacket for the reception as the evening may get cool.",
+      "We'd love to see you in formal attire — think summery, fun, and colorful! Greece in August is warm, so dress accordingly, but do bring a light jacket for the evening as it can get breezy.",
   },
   {
     icon: Camera,
