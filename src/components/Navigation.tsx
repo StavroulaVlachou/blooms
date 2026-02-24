@@ -39,7 +39,7 @@ const Navigation = () => {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <a href="#" className="font-serif text-xl tracking-wide">
             <span className={`transition-colors duration-500 text-foreground`}>
-              E <span className="text-gold italic font-light">&</span> R
+              E <span className="text-green-accent italic font-light">&</span> R
             </span>
           </a>
 

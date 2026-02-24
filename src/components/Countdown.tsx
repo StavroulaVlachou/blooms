@@ -53,7 +53,7 @@ const Countdown = () => {
           transition={{ delay: index * 0.1 + 0.8, duration: 0.6 }}
           className="flex flex-col items-center"
         >
-          <div className="border border-border bg-card/50 backdrop-blur-sm p-4 sm:p-6 min-w-[65px] sm:min-w-[90px]">
+          <div className="border border-green-accent/30 bg-card/50 backdrop-blur-sm p-4 sm:p-6 min-w-[65px] sm:min-w-[90px]">
             <span className="text-2xl sm:text-4xl md:text-5xl font-serif text-foreground font-medium block text-center">
               {String(block.value).padStart(2, "0")}
             </span>
