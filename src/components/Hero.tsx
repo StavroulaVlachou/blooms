@@ -28,7 +28,7 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.3 }}
           className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-foreground mb-6 font-medium"
         >
-          Erik <span className="font-light italic text-gold">&</span> Rafailia
+          Erik <span className="font-light italic text-green-accent">&</span> Rafailia
         </motion.h1>
         
         <motion.div
@@ -78,7 +78,7 @@ const Hero = () => {
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-muted-foreground text-[10px] uppercase tracking-[0.3em] font-sans">Respond</span>
+          <span className="text-green-accent/70 text-[10px] uppercase tracking-[0.3em] font-sans">Respond</span>
           <div className="w-px h-8 bg-gradient-to-b from-muted-foreground/50 to-transparent" />
         </div>
       </motion.div>
