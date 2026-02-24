@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface SectionTitleProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
 }
 

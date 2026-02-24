@@ -46,7 +46,7 @@ const FAQ = () => {
     <section id="faq" className="py-24 sm:py-32 bg-secondary/50">
       <div className="container mx-auto px-4">
         <SectionTitle
-          title="Questions & Answers"
+          title={<>Questions <span className="text-green-accent italic font-light">&</span> Answers</>}
           subtitle="Everything you need to know"
         />
 
