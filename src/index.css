@@ -41,10 +41,8 @@
 
     --radius: 0.125rem;
 
-    /* Antique Gold - warmer and more visible */
-    --gold: 38 45% 45%;
-
-    /* Green Accent */
+    /* Green accent (was gold) */
+    --gold: 129 43% 18%;
     --green-accent: 129 43% 18%;
     --green-accent-foreground: 0 0% 100%;
     --gold-foreground: 210 30% 96%;
