@@ -128,8 +128,8 @@ const RSVP = () => {
                   className={cn(
                     "h-14 border flex items-center justify-center gap-3 transition-all duration-300 font-sans text-xs uppercase tracking-[0.2em] font-light",
                     attending === false
-                      ? "border-gold bg-gold/10 text-foreground"
-                      : "border-border bg-card text-muted-foreground hover:border-gold/40"
+                      ? "border-blush bg-blush/10 text-foreground"
+                      : "border-border bg-card text-muted-foreground hover:border-blush/40"
                   )}
                 >
                   <X className="w-4 h-4" strokeWidth={1.5} />
