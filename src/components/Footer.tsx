@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold/40 to-transparent mb-8" />
         
         <p className="text-[10px] text-primary-foreground/40 font-sans uppercase tracking-[0.3em] font-light">
-          With love
+          See you in Greece
         </p>
       </div>
     </footer>
