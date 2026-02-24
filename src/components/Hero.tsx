@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
-import hydrangeaBg from "@/assets/hydrangea-blue.png";
+import hydrangeaBg from "@/assets/hydrangea-sea.png";
 
 const Hero = () => {
   return (
