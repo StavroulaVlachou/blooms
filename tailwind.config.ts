@@ -55,6 +55,10 @@ export default {
           DEFAULT: "hsl(var(--gold))",
           foreground: "hsl(var(--gold-foreground))",
         },
+        "green-accent": {
+          DEFAULT: "hsl(var(--green-accent))",
+          foreground: "hsl(var(--green-accent-foreground))",
+        },
         navy: {
           DEFAULT: "hsl(var(--navy))",
           foreground: "hsl(var(--navy-foreground))",

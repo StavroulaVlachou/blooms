@@ -43,6 +43,10 @@
 
     /* Antique Gold - warmer and more visible */
     --gold: 38 45% 45%;
+
+    /* Green Accent */
+    --green-accent: 129 43% 18%;
+    --green-accent-foreground: 0 0% 100%;
     --gold-foreground: 210 30% 96%;
 
     /* Deep Slate */
