@@ -63,7 +63,7 @@ const Hero = () => {
         >
           <a
             href="#rsvp"
-            className="inline-block border-2 border-gold bg-gold/15 hover:bg-gold/30 text-foreground px-14 py-5 uppercase tracking-[0.3em] text-sm font-sans font-medium transition-all duration-500 shadow-[0_4px_20px_-4px_hsl(var(--gold)/0.4)] hover:shadow-[0_6px_28px_-4px_hsl(var(--gold)/0.55)]"
+            className="inline-block border-2 border-green-accent bg-green-accent/15 hover:bg-green-accent/30 text-foreground px-14 py-5 uppercase tracking-[0.3em] text-sm font-sans font-medium transition-all duration-500 shadow-[0_4px_20px_-4px_hsl(var(--green-accent)/0.4)] hover:shadow-[0_6px_28px_-4px_hsl(var(--green-accent)/0.55)]"
           >
             RSVP
           </a>
