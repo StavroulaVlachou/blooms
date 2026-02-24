@@ -19,13 +19,13 @@ const faqs = [
     icon: Shirt,
     question: "What is the dress code?",
     answer:
-      "For the rehearsal dinner, the dress code is cocktail attire. For the wedding ceremony and reception, we ask for formal attire. Please bring a jacket for the reception as the evening may get cool.",
+      "For the rehearsal dinner, the dress code is cocktail attire. For the wedding ceremony and reception, we ask for formal attire — think summery, fun, and colorful! Please bring a jacket for the reception as the evening may get cool.",
   },
   {
     icon: Camera,
     question: "Can I take photos during the wedding?",
     answer:
-      "Absolutely! You are welcome to take photos throughout the celebration. We will set up a shared space (app to be determined) where everyone can upload and share their photos with us and other guests.",
+      "We kindly ask you not to take photos during the ceremony so we can all be fully present in the moment. Outside of that, you are more than welcome to snap away throughout the celebration! We will set up a shared space (app to be determined) where everyone can upload and share their photos with us and other guests.",
   },
   {
     icon: Car,
