@@ -6,38 +6,38 @@
 
 @layer base {
   :root {
-    /* Hydrangea Blue Palette */
-    --background: 218 38% 96%;
-    --foreground: 220 35% 12%;
+    /* Light Dusty Blue Palette */
+    --background: 210 30% 96%;
+    --foreground: 215 35% 12%;
 
-    --card: 218 32% 92%;
-    --card-foreground: 220 35% 12%;
+    --card: 210 25% 93%;
+    --card-foreground: 215 35% 12%;
 
-    --popover: 218 32% 92%;
-    --popover-foreground: 220 35% 12%;
+    --popover: 210 25% 93%;
+    --popover-foreground: 215 35% 12%;
 
-    /* Hydrangea Blue */
-    --primary: 218 35% 34%;
-    --primary-foreground: 218 30% 96%;
+    /* Dusty Blue */
+    --primary: 210 35% 32%;
+    --primary-foreground: 210 30% 96%;
 
-    /* Light Periwinkle */
-    --secondary: 218 28% 87%;
-    --secondary-foreground: 220 30% 20%;
+    /* Light Blue-Grey */
+    --secondary: 210 20% 88%;
+    --secondary-foreground: 215 30% 20%;
 
-    /* Soft Lavender Mist */
-    --muted: 218 22% 84%;
-    --muted-foreground: 220 15% 38%;
+    /* Soft Blue Mist */
+    --muted: 210 15% 85%;
+    --muted-foreground: 215 15% 38%;
 
     /* Sage accent */
     --accent: 170 20% 35%;
-    --accent-foreground: 218 30% 96%;
+    --accent-foreground: 210 30% 96%;
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 218 28% 76%;
-    --input: 218 28% 76%;
-    --ring: 218 40% 48%;
+    --border: 210 22% 78%;
+    --input: 210 22% 78%;
+    --ring: 210 40% 45%;
 
     --radius: 0.125rem;
 
@@ -45,14 +45,14 @@
     --gold: 129 43% 18%;
     --green-accent: 129 35% 28%;
     --green-accent-foreground: 0 0% 100%;
-    --gold-foreground: 218 30% 96%;
+    --gold-foreground: 210 30% 96%;
 
     /* Deep Slate */
-    --navy: 220 35% 16%;
-    --navy-foreground: 218 30% 96%;
+    --navy: 215 35% 16%;
+    --navy-foreground: 210 30% 96%;
 
     /* Pale Blue */
-    --cream: 218 40% 93%;
+    --cream: 210 35% 94%;
 
     /* Dusty Rose */
     --blush: 350 25% 58%;
@@ -61,14 +61,14 @@
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Lato', -apple-system, sans-serif;
 
-    --sidebar-background: 218 25% 93%;
-    --sidebar-foreground: 220 20% 25%;
-    --sidebar-primary: 218 25% 40%;
-    --sidebar-primary-foreground: 218 30% 96%;
-    --sidebar-accent: 218 20% 88%;
-    --sidebar-accent-foreground: 220 20% 25%;
-    --sidebar-border: 218 18% 85%;
-    --sidebar-ring: 218 35% 50%;
+    --sidebar-background: 210 25% 93%;
+    --sidebar-foreground: 215 20% 25%;
+    --sidebar-primary: 210 25% 40%;
+    --sidebar-primary-foreground: 210 30% 96%;
+    --sidebar-accent: 210 20% 88%;
+    --sidebar-accent-foreground: 215 20% 25%;
+    --sidebar-border: 210 18% 85%;
+    --sidebar-ring: 210 35% 50%;
   }
 
   .dark {
