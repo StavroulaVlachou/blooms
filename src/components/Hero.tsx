@@ -77,14 +77,10 @@ const Hero = () => {
         transition={{ delay: 2 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
+        <div className="flex flex-col items-center gap-2">
           <span className="text-muted-foreground text-[10px] uppercase tracking-[0.3em] font-sans">Respond</span>
           <div className="w-px h-8 bg-gradient-to-b from-muted-foreground/50 to-transparent" />
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );
