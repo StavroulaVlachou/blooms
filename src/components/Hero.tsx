@@ -65,7 +65,7 @@ const Hero = () => {
             href="#rsvp"
             className="inline-block border-2 border-gold bg-gold/15 hover:bg-gold/30 text-foreground px-14 py-5 uppercase tracking-[0.3em] text-sm font-sans font-medium transition-all duration-500 shadow-[0_4px_20px_-4px_hsl(var(--gold)/0.4)] hover:shadow-[0_6px_28px_-4px_hsl(var(--gold)/0.55)]"
           >
-            Respond
+            RSVP
           </a>
         </motion.div>
       </div>
@@ -82,7 +82,7 @@ const Hero = () => {
           transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-muted-foreground text-[10px] uppercase tracking-[0.3em] font-sans">Scroll</span>
+          <span className="text-muted-foreground text-[10px] uppercase tracking-[0.3em] font-sans">Respond</span>
           <div className="w-px h-8 bg-gradient-to-b from-muted-foreground/50 to-transparent" />
         </motion.div>
       </motion.div>
