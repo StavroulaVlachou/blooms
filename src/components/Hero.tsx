@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import Countdown from "./Countdown";
+import hydrangeaBg from "@/assets/hydrangea-bg.png";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Background image with transparency */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-15"
+        style={{ backgroundImage: `url(${hydrangeaBg})` }}
+      />
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 py-20">
