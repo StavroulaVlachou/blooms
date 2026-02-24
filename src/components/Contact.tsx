@@ -54,8 +54,8 @@ const Contact = () => {
                     href={person.phoneHref}
                     className="flex items-center gap-4 px-4 py-3 border border-border hover:border-gold/40 transition-all duration-300 group"
                   >
-                    <div className="w-10 h-10 border border-gold/30 flex items-center justify-center">
-                      <Phone className="w-4 h-4 text-gold" strokeWidth={1.5} />
+                    <div className="w-10 h-10 border border-green-accent/30 flex items-center justify-center">
+                      <Phone className="w-4 h-4 text-green-accent" strokeWidth={1.5} />
                     </div>
                     <span className="text-sm text-foreground font-light">
                       {person.phone}
@@ -66,8 +66,8 @@ const Contact = () => {
                     href={person.emailHref}
                     className="flex items-center gap-4 px-4 py-3 border border-border hover:border-gold/40 transition-all duration-300 group"
                   >
-                    <div className="w-10 h-10 border border-gold/30 flex items-center justify-center">
-                      <Mail className="w-4 h-4 text-gold" strokeWidth={1.5} />
+                    <div className="w-10 h-10 border border-green-accent/30 flex items-center justify-center">
+                      <Mail className="w-4 h-4 text-green-accent" strokeWidth={1.5} />
                     </div>
                     <span className="text-sm text-foreground font-light truncate">
                       {person.email}

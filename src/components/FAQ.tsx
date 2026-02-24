@@ -66,8 +66,8 @@ const FAQ = () => {
               >
                 <AccordionTrigger className="hover:no-underline py-6">
                   <div className="flex items-center gap-5">
-                    <div className="w-10 h-10 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                      <faq.icon className="w-4 h-4 text-gold" strokeWidth={1.5} />
+                    <div className="w-10 h-10 border border-green-accent/30 flex items-center justify-center flex-shrink-0">
+                      <faq.icon className="w-4 h-4 text-green-accent" strokeWidth={1.5} />
                     </div>
                     <span className="text-left font-serif text-base text-foreground font-medium">
                       {faq.question}

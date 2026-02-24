@@ -58,7 +58,7 @@ const DayOf = () => {
         >
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gold/20 hidden sm:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-green-accent/25 hidden sm:block" />
 
             <div className="space-y-6">
               {events.map((event, index) => (
@@ -71,8 +71,8 @@ const DayOf = () => {
                   className="flex items-start gap-6"
                 >
                   {/* Icon circle */}
-                  <div className="relative z-10 flex-shrink-0 w-16 h-16 border border-gold/30 bg-background flex items-center justify-center">
-                    <event.icon className="w-6 h-6 text-gold" strokeWidth={1.5} />
+                  <div className="relative z-10 flex-shrink-0 w-16 h-16 border border-green-accent/30 bg-background flex items-center justify-center">
+                    <event.icon className="w-6 h-6 text-green-accent" strokeWidth={1.5} />
                   </div>
 
                   {/* Content */}
