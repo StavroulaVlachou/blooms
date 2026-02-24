@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
-import { Hotel, Home, MapPin, ExternalLink } from "lucide-react";
+import { Hotel, Home, ExternalLink } from "lucide-react";
 
 const accommodationOptions = [
   {
@@ -8,21 +8,12 @@ const accommodationOptions = [
     title: "Booking.com List",
     description: "Our curated list of recommended hotels near the venue",
     link: "https://booking.com/mywishlist.html?wl=6816a744c757408599f8fe226b8187a7",
-    placeholder: false,
   },
   {
     icon: Home,
     title: "Airbnb Wishlist",
     description: "Handpicked apartments and villas for a local experience",
     link: "https://www.airbnb.com/wishlists/1924011412",
-    placeholder: false,
-  },
-  {
-    icon: MapPin,
-    title: "Other Options",
-    description: "Alternative accommodations and local guesthouses",
-    link: "#", // Placeholder
-    placeholder: true,
   },
 ];
 
@@ -42,7 +33,7 @@ const Accommodation = () => {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {accommodationOptions.map((option, index) => (
               <motion.a
                 key={option.title}
@@ -53,9 +44,7 @@ const Accommodation = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-card p-8 border border-border hover:border-gold/40 transition-all duration-500 group text-center ${
-                  option.placeholder ? 'opacity-60' : ''
-                }`}
+                className="bg-card p-8 border border-border hover:border-gold/40 transition-all duration-500 group text-center"
               >
                 <div className="w-12 h-12 border border-gold/30 flex items-center justify-center mx-auto mb-6">
                   <option.icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
@@ -67,11 +56,6 @@ const Accommodation = () => {
                 <p className="text-sm text-muted-foreground font-light">
                   {option.description}
                 </p>
-                {option.placeholder && (
-                  <span className="inline-block mt-4 text-[10px] text-muted-foreground/60 uppercase tracking-widest">
-                    Coming soon
-                  </span>
-                )}
               </motion.a>
             ))}
           </div>
