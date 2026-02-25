@@ -19,7 +19,7 @@ const faqs = [
     icon: Clock,
     question: "What time should I arrive?",
     answer:
-      "We recommend arriving at the church by 17:45, about 15 minutes before the ceremony begins at 18:00. This gives you time to find a seat and settle in before the procession starts.",
+      "We recommend arriving at the church by 17:45, about 15 minutes before the ceremony begins at 18:00.",
   },
   {
     icon: Shirt,
