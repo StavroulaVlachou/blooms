@@ -32,14 +32,14 @@ const Navigation = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-green-accent/95 backdrop-blur-sm border-b border-green-accent py-2"
+            ? "bg-green-accent backdrop-blur-sm border-b border-green-accent py-2"
             : "bg-green-accent py-4"
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
           <a href="#" className="font-serif text-xl tracking-wide">
             <span className="transition-colors duration-500 text-white">
-              E <span className="text-white/80" style={{ fontFamily: "'Great Vibes', cursive" }}>&</span> R
+              E <span className="text-white/80 italic" style={{ fontFamily: "'Cormorant Garamond', serif" }}>&</span> R
             </span>
           </a>
 
