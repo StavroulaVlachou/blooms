@@ -379,7 +379,7 @@ const RSVP = () => {
                             We will need transportation on the wedding day
                           </Label>
                           <p className="text-xs text-muted-foreground font-light">
-                            Shuttle service between the church and the reception venue
+                            Shuttle service between the church, reception venue, and back to your accommodation
                           </p>
                         </div>
                       </div>
