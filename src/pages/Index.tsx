@@ -9,20 +9,30 @@ import FAQ from "@/components/FAQ";
 import RSVP from "@/components/RSVP";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <Navigation />
       <Hero />
+      <SectionDivider />
       <DayOf />
+      <SectionDivider />
       <RSVP />
+      <SectionDivider />
       <Transportation />
+      <SectionDivider />
       <Accommodation />
+      <SectionDivider />
       <Activities />
+      <SectionDivider />
       <Gallery />
+      <SectionDivider />
       <FAQ />
+      <SectionDivider />
       <Contact />
+      <SectionDivider />
       <Footer />
     </main>
   );
