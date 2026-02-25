@@ -43,7 +43,7 @@ const faqs = [
     icon: Gift,
     question: "What about wedding gifts?",
     answer:
-      "Your presence is the biggest present you could give us! If you wish to contribute to our honeymoon, here are some options:\n\n🇸🇪 Sweden: Swish to <phone number>\n🇬🇷 Greece: IBAN <placeholder>\n🇺🇸 US: IBAN <placeholder>\n🌍 Other: IBAN <placeholder>",
+      "Your presence is the biggest present you could give us! If you wish to contribute to our honeymoon, here are some options:\n\n🇸🇪 Sweden: Swish to Erik 0790489505 or Rafailia 0724457300\n🇬🇷 Greece: IBAN <placeholder>\n🇺🇸 US: IBAN <placeholder>\n🌍 Other: IBAN <placeholder>",
   },
 ];
 
