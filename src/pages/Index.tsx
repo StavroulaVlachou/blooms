@@ -13,7 +13,7 @@ import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen border-x border-green-accent/30">
       <Navigation />
       <Hero />
       <SectionDivider />
