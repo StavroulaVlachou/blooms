@@ -32,14 +32,14 @@ const Navigation = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-sm border-b border-border py-4"
-            : "bg-transparent py-8"
+            ? "bg-green-accent/95 backdrop-blur-sm border-b border-green-accent py-4"
+            : "bg-green-accent py-8"
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
           <a href="#" className="font-serif text-xl tracking-wide">
-            <span className={`transition-colors duration-500 text-foreground`}>
-              E <span className="text-green-accent italic font-light">&</span> R
+            <span className="transition-colors duration-500 text-white">
+              E <span className="text-white/80 italic font-light">&</span> R
             </span>
           </a>
 
@@ -49,7 +49,7 @@ const Navigation = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-green-accent/70 text-green-accent"
+                  className="text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-white text-white/80"
                 >
                   {link.label}
                 </a>
@@ -60,7 +60,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 transition-colors duration-500 text-foreground"
+            className="md:hidden p-2 transition-colors duration-500 text-white"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -75,7 +75,7 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background pt-28 md:hidden"
+            className="fixed inset-0 z-40 bg-green-accent pt-28 md:hidden"
           >
             <ul className="flex flex-col items-center gap-10 p-8">
               {navLinks.map((link, index) => (
@@ -88,7 +88,7 @@ const Navigation = () => {
                   <a
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-sm uppercase tracking-[0.2em] font-sans font-light text-foreground hover:text-green-accent transition-colors"
+                    className="text-sm uppercase tracking-[0.2em] font-sans font-light text-white/80 hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
