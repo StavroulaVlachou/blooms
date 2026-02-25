@@ -196,7 +196,6 @@ const RSVP = () => {
                             <SelectItem value="normal">No restrictions</SelectItem>
                             <SelectItem value="vegetarian">Vegetarian</SelectItem>
                             <SelectItem value="vegan">Vegan</SelectItem>
-                            <SelectItem value="pescetarian">Pescetarian</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -274,7 +273,6 @@ const RSVP = () => {
                                 <SelectItem value="normal">No restrictions</SelectItem>
                                 <SelectItem value="vegetarian">Vegetarian</SelectItem>
                                 <SelectItem value="vegan">Vegan</SelectItem>
-                                <SelectItem value="pescetarian">Pescetarian</SelectItem>
                               </SelectContent>
                             </Select>
                             
