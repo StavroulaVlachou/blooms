@@ -43,7 +43,7 @@ const faqs = [
     icon: Gift,
     question: "What about wedding gifts?",
     answer:
-      "Your presence is the biggest present you could give us! If you wish to contribute to our honeymoon, we will share some options soon — stay tuned for updates.",
+      "Your presence is the biggest present you could give us! If you wish to contribute to our honeymoon, here are some options:\n\n🇸🇪 Sweden: Swish to <phone number>\n🇬🇷 Greece: IBAN <placeholder>\n🇺🇸 US: IBAN <placeholder>\n🌍 Other: IBAN <placeholder>",
   },
 ];
 
@@ -80,7 +80,7 @@ const FAQ = () => {
                     </span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light pb-6 pl-[60px] leading-relaxed">
+                <AccordionContent className="text-muted-foreground font-light pb-6 pl-[60px] leading-relaxed whitespace-pre-line">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
