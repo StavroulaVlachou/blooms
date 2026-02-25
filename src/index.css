@@ -6,38 +6,38 @@
 
 @layer base {
   :root {
-    /* Dusty Blue Palette */
-    --background: 212 35% 95%;
-    --foreground: 215 35% 12%;
+    /* Hydrangea-Inspired Palette */
+    --background: 216 32% 94%;
+    --foreground: 218 35% 14%;
 
-    --card: 214 30% 91%;
-    --card-foreground: 215 35% 12%;
+    --card: 220 28% 90%;
+    --card-foreground: 218 35% 14%;
 
-    --popover: 214 30% 91%;
-    --popover-foreground: 215 35% 12%;
+    --popover: 220 28% 90%;
+    --popover-foreground: 218 35% 14%;
 
-    /* Dusty Blue */
-    --primary: 212 38% 30%;
-    --primary-foreground: 212 35% 95%;
+    /* Deeper Periwinkle Blue */
+    --primary: 218 36% 28%;
+    --primary-foreground: 216 32% 94%;
 
-    /* Light Blue-Grey */
-    --secondary: 214 25% 86%;
-    --secondary-foreground: 215 30% 20%;
+    /* Soft Lavender Blue */
+    --secondary: 220 30% 87%;
+    --secondary-foreground: 218 30% 18%;
 
-    /* Soft Blue Mist */
-    --muted: 213 20% 83%;
-    --muted-foreground: 215 15% 38%;
+    /* Icy Blue Mist */
+    --muted: 218 22% 82%;
+    --muted-foreground: 220 14% 40%;
 
     /* Sage accent */
     --accent: 170 20% 35%;
-    --accent-foreground: 212 35% 95%;
+    --accent-foreground: 216 32% 94%;
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 22% 78%;
-    --input: 210 22% 78%;
-    --ring: 210 40% 45%;
+    --border: 220 20% 80%;
+    --input: 220 20% 80%;
+    --ring: 218 38% 45%;
 
     --radius: 0.125rem;
 
@@ -45,14 +45,14 @@
     --gold: 129 43% 18%;
     --green-accent: 129 35% 28%;
     --green-accent-foreground: 0 0% 100%;
-    --gold-foreground: 210 30% 96%;
+    --gold-foreground: 216 32% 94%;
 
     /* Deep Slate */
-    --navy: 215 35% 16%;
-    --navy-foreground: 210 30% 96%;
+    --navy: 218 35% 14%;
+    --navy-foreground: 216 32% 94%;
 
-    /* Pale Blue */
-    --cream: 210 35% 94%;
+    /* Pale Periwinkle */
+    --cream: 222 30% 92%;
 
     /* Dusty Rose */
     --blush: 350 25% 58%;
