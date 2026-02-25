@@ -49,7 +49,7 @@ const Navigation = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-gold text-foreground"
+                  className="text-[11px] uppercase tracking-[0.2em] font-sans font-light transition-colors duration-300 hover:text-green-accent text-foreground"
                 >
                   {link.label}
                 </a>
@@ -88,7 +88,7 @@ const Navigation = () => {
                   <a
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-sm uppercase tracking-[0.2em] font-sans font-light text-foreground hover:text-gold transition-colors"
+                    className="text-sm uppercase tracking-[0.2em] font-sans font-light text-foreground hover:text-green-accent transition-colors"
                   >
                     {link.label}
                   </a>
