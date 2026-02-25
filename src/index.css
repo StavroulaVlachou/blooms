@@ -6,31 +6,31 @@
 
 @layer base {
   :root {
-    /* Light Dusty Blue Palette */
-    --background: 210 30% 96%;
+    /* Dusty Blue Palette */
+    --background: 212 35% 95%;
     --foreground: 215 35% 12%;
 
-    --card: 210 25% 93%;
+    --card: 214 30% 91%;
     --card-foreground: 215 35% 12%;
 
-    --popover: 210 25% 93%;
+    --popover: 214 30% 91%;
     --popover-foreground: 215 35% 12%;
 
     /* Dusty Blue */
-    --primary: 210 35% 32%;
-    --primary-foreground: 210 30% 96%;
+    --primary: 212 38% 30%;
+    --primary-foreground: 212 35% 95%;
 
     /* Light Blue-Grey */
-    --secondary: 210 20% 88%;
+    --secondary: 214 25% 86%;
     --secondary-foreground: 215 30% 20%;
 
     /* Soft Blue Mist */
-    --muted: 210 15% 85%;
+    --muted: 213 20% 83%;
     --muted-foreground: 215 15% 38%;
 
     /* Sage accent */
     --accent: 170 20% 35%;
-    --accent-foreground: 210 30% 96%;
+    --accent-foreground: 212 35% 95%;
 
     --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 100%;
