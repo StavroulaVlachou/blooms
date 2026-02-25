@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Users, Shirt, Camera, Car, Gift } from "lucide-react";
+import { Users, Shirt, Camera, Car, Gift, Clock } from "lucide-react";
 
 const faqs = [
   {
@@ -14,6 +14,12 @@ const faqs = [
     question: "Can I bring a plus one?",
     answer:
       "Yes! You are welcome to bring your significant other and children. Please make sure to include all their names in the RSVP form so we can plan accordingly.",
+  },
+  {
+    icon: Clock,
+    question: "What time should I arrive?",
+    answer:
+      "We recommend arriving at the church by 17:45, about 15 minutes before the ceremony begins at 18:00. This gives you time to find a seat and settle in before the procession starts.",
   },
   {
     icon: Shirt,
