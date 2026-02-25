@@ -32,8 +32,8 @@ const Navigation = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-green-accent/95 backdrop-blur-sm border-b border-green-accent py-4"
-            : "bg-green-accent py-8"
+            ? "bg-green-accent/95 backdrop-blur-sm border-b border-green-accent py-2"
+            : "bg-green-accent py-4"
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
