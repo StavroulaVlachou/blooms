@@ -9,6 +9,7 @@ import partyImage from "@/assets/party.png";
 interface Event {
   time: string;
   title: string;
+  location?: string;
   icon: LucideIcon;
   image?: string;
 }
@@ -17,24 +18,28 @@ const events: Event[] = [
   {
     time: "18:00",
     title: "Wedding Ceremony",
+    location: "Holy Church of Saint Spyridon, Gargalianoi 24400",
     icon: Church,
     image: churchImage,
   },
   {
     time: "19:00",
     title: "Cocktail Hour",
+    location: "Ktima Vrysomylos",
     icon: Wine,
     image: cocktailHour,
   },
   {
     time: "20:00",
     title: "Dinner",
+    location: "Ktima Vrysomylos",
     icon: UtensilsCrossed,
     image: dinnerImage,
   },
   {
     time: "21:30",
     title: "Party",
+    location: "Ktima Vrysomylos",
     icon: PartyPopper,
     image: partyImage,
   },
@@ -92,9 +97,16 @@ const DayOf = () => {
                           <div className="absolute inset-0 bg-foreground/50" />
                         </>
                       )}
-                      <h3 className={`relative z-10 font-serif text-xl font-medium ${event.image ? 'text-white' : 'text-foreground'}`}>
-                        {event.title}
-                      </h3>
+                      <div className="relative z-10">
+                        <h3 className={`font-serif text-xl font-medium ${event.image ? 'text-white' : 'text-foreground'}`}>
+                          {event.title}
+                        </h3>
+                        {event.location && (
+                          <p className={`font-sans text-xs tracking-wide mt-1 ${event.image ? 'text-white/70' : 'text-muted-foreground'}`}>
+                            {event.location}
+                          </p>
+                        )}
+                      </div>
                       <span className={`relative z-10 font-sans text-sm tracking-widest ${event.image ? 'text-white/80' : 'text-gold'}`}>
                         {event.time}
                       </span>
