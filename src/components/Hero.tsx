@@ -28,7 +28,7 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.3 }}
           className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif text-foreground mb-6 font-medium"
         >
-          Erik <span className="text-green-accent" style={{ fontFamily: "'Great Vibes', cursive" }}>&</span> Rafailia
+          Erik <span className="text-green-accent italic" style={{ fontFamily: "'Cormorant Garamond', serif" }}>&</span> Rafailia
         </motion.h1>
         
         <motion.div
