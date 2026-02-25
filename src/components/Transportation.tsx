@@ -97,6 +97,20 @@ const Transportation = () => {
                   <p className="text-muted-foreground text-sm font-light mb-3 leading-relaxed">
                     Pre-book a taxi for airport transfers or local trips.
                   </p>
+                  <div className="space-y-2 mb-3">
+                    <p className="text-sm text-foreground font-light">
+                      Taxi Gargalianoi:{" "}
+                      <a href="tel:+302763022400" className="text-gold hover:text-gold/80 transition-colors">
+                        +30 2763 022400
+                      </a>
+                    </p>
+                    <p className="text-sm text-foreground font-light">
+                      Taxi Pylos:{" "}
+                      <a href="tel:+306972827152" className="text-gold hover:text-gold/80 transition-colors">
+                        +30 6972 827152
+                      </a>
+                    </p>
+                  </div>
                   <a
                     href="https://www.messiniaride.com/"
                     target="_blank"
