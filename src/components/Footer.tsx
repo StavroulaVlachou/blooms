@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-16 sm:py-24 bg-green-accent text-green-accent-foreground">
+    <footer className="py-10 sm:py-14 bg-green-accent text-green-accent-foreground">
       <div className="container mx-auto px-4 text-center">
         <p className="font-serif text-3xl sm:text-4xl mb-6 font-medium">
           Erik <span className="text-green-accent-foreground/70 font-light" style={{ fontFamily: "'Cinzel', serif" }}>&</span> Rafailia
