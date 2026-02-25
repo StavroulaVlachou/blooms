@@ -106,6 +106,10 @@ const Transportation = () => {
                     </p>
                     <p className="text-sm text-foreground font-light">
                       Taxi Pylos:{" "}
+                      <a href="tel:+302723022555" className="text-gold hover:text-gold/80 transition-colors">
+                        +30 2723 022555
+                      </a>
+                      {" / "}
                       <a href="tel:+306972827152" className="text-gold hover:text-gold/80 transition-colors">
                         +30 6972 827152
                       </a>
