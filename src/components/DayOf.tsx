@@ -47,7 +47,7 @@ const events: Event[] = [
 
 const DayOf = () => {
   return (
-    <section id="day-of" className="py-24 sm:py-32 bg-secondary/50">
+    <section id="day-of" className="py-24 sm:py-32" style={{ backgroundColor: '#D6F0FA' }}>
       <div className="container mx-auto px-4">
         <SectionTitle
           title="The Celebration"
