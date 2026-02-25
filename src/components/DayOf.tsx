@@ -102,7 +102,7 @@ const DayOf = () => {
                           {event.title}
                         </h3>
                         {event.location && (
-                          <p className={`font-sans text-xs tracking-wide mt-1 ${event.image ? 'text-white/70' : 'text-muted-foreground'}`}>
+                          <p className={`font-sans text-sm tracking-wide mt-1 ${event.image ? 'text-white/90' : 'text-muted-foreground'}`}>
                             {event.location}
                           </p>
                         )}
