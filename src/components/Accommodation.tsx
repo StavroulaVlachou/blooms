@@ -23,7 +23,7 @@ const Accommodation = () => {
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Accommodations"
-          subtitle="Curated places to stay during your visit to Messinia"
+          subtitle="Some accommodation options to stay during your visit to Messinia"
         />
 
         <motion.div
