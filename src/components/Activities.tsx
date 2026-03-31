@@ -57,7 +57,7 @@ const activities = [
     icon: Compass,
     title: "Proti Cruises",
     description: "Boat trips to Proti Island for swimming and snorkeling",
-    link: "https://www.protocruises.gr/",
+    link: "https://www.proticruises.gr/",
     image: protiCruisesImg,
     size: "medium",
   },
