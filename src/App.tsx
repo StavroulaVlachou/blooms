@@ -7,13 +7,16 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const isGithubPagesHost = typeof window !== "undefined" && window.location.hostname.endsWith(".github.io");
+const githubPagesBase = isGithubPagesHost ? window.location.pathname.split("/")[1] : "";
+const routerBasename = githubPagesBase ? `/${githubPagesBase}` : "/";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename}>
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
