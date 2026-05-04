@@ -521,7 +521,7 @@ const RSVP = () => {
           )}
 
           <p className="text-center text-muted-foreground text-xs mt-8 font-light uppercase tracking-widest">
-            Kindly respond by <span className="text-foreground">May 31, 2026</span>
+            Kindly respond by <span className="text-foreground">June 30, 2026</span>
           </p>
         </motion.div>
       </div>

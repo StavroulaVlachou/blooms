@@ -30,14 +30,14 @@ const events: Event[] = [
     image: cocktailHour,
   },
   {
-    time: "20:00",
+    time: "20:30",
     title: "Dinner",
     location: "Vrysomylos Estate, 24400",
     icon: UtensilsCrossed,
     image: dinnerImage,
   },
   {
-    time: "21:30",
+    time: "22:00",
     title: "Party",
     location: "Vrysomylos Estate, 24400",
     icon: PartyPopper,
@@ -82,10 +82,9 @@ const DayOf = () => {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <div 
-                      className={`relative flex items-center justify-between py-6 px-8 border border-border overflow-hidden ${
-                        event.image ? 'min-h-[200px]' : 'bg-card'
-                      }`}
+                    <div
+                      className={`relative flex items-center justify-between py-6 px-8 border border-border overflow-hidden ${event.image ? 'min-h-[200px]' : 'bg-card'
+                        }`}
                     >
                       {event.image && (
                         <>

@@ -37,13 +37,13 @@ const faqs = [
     icon: Car,
     question: "Will transportation be provided?",
     answer:
-      "Yes, we will provide transportation from the church to the reception venue, and from the venue back to your accommodation at the end of the evening. Please make sure to register your interest in transportation when filling out the RSVP form.",
+      "Yes, we will provide transportation from the church to the reception venue, and from the venue back to your accommodation at the end of the evening. For getting to the church, we kindly ask guests to arrange their own transportation, and we recommend pre-booking a local taxi to make things easy and stress-free. You can find phone numbers for local taxi drivers and services under “Local Transportation."
   },
   {
     icon: Gift,
     question: "What about wedding gifts?",
     answer:
-      "Your presence is the biggest present you could give us! If you wish to contribute to our honeymoon, here are some options:\n\n🇸🇪 Sweden: Swish to Erik 0790489505 or Rafailia 0724457300\n🇬🇷 Greece: IBAN <placeholder>\n🇺🇸 US: IBAN <placeholder>\n🌍 Other: IBAN <placeholder>",
+      "Your presence is the biggest present you could give us! If you wish to contribute to our honeymoon, here are some options:\n\n🇸🇪 Sweden: Swish to Erik 0790489505 or Rafailia 0724457300\n🇬🇷 Greece: IBAN <placeholder>\n🇺🇸 US: IBAN <placeholder>",
   },
 ];
 
